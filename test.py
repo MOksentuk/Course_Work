@@ -17,4 +17,5 @@ q1 = Quart(12)
 
 manager = Manager()
 print(manager.to_glass(q1))
-# тесчу работу с ноута
+# тесчу работу с ноута fgjdkg,fgjdnf
+# и я всё ещё могу здесь работать
