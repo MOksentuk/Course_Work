@@ -2,40 +2,41 @@ class Manager:
     @staticmethod
     def checker(amount):
         """Проверки превышения максимально допустимого значения"""
-        check_const = 2909.4
+        check_const = 2560
 
         return amount > check_const
+
+
 
     @staticmethod
     def getter(value):
         """Перевод из литров в начальные меры объёма"""
-        bushel_const = 36.368
-        gallon_const = 4.546
-        quart_const = 1.1365
-        bushel = str(value // bushel_const)
+        bushel_const = 32
+        gallon_const = 4
+        bushel = value // bushel_const
         gallon = (value % bushel_const) // gallon_const
-        quart = (value % bushel_const % gallon_const) // quart_const
+        quart = value % bushel_const % gallon_const
         ans = 'В полученном значении '
-        if bushel[-1] == '1':
-            ans += bushel + ' бушель'
-        elif bushel[-1] in '234':
-            ans += bushel + ' бушелей'  # (1) бушель, (2-4) бушеля, (5-9) бушелей
-        elif bushel[-1] in '56789' or bushel != '0.0':
-            ans += bushel + ' бушелей'
-        if bushel != '0.0' and gallon != 0:
-            ans += ', '
-        if gallon == 1:
-            ans += str(gallon) + ' галлон'  # 1 кварта, 2-3 кварты
-        elif 1 < gallon < 5:
-            ans += str(gallon) + ' галлона'
-        elif 4 < gallon < 8:
-            ans += str(gallon) + ' галлонов'  # 1 галлон, 2-4 галлона, 5-7 галлонов
-        if quart != 0 and gallon != 0:
-            ans += ', '
-        if quart == 1:
-            ans += str(quart) + ' кварта'  # 1 кварта, 2-3 кварты
-        elif 1 < quart < 4:
-            ans += str(quart) + ' кварты'
+        if 1 < bushel % 10 < 5:
+            ans += f'{bushel} бушеля'  # (1) бушель, (2-4) бушеля, (5-9) бушелей
+        elif bushel == 1:
+            ans += f'{bushel} бушель'
+        elif 4 < bushel % 10 < 10 or bushel != 0:
+            ans += f'{bushel} бушелей'
+
+        if bushel != 0 and gallon != 0: ans += ', '
+
+        if 1 < gallon % 10 < 5:
+            ans += f'{gallon} галлона'  # (1) бушель, (2-4) бушеля, (5-9) бушелей
+        elif gallon == 1:
+            ans += f'{gallon} галлон'
+        elif 4 < gallon % 10 < 10 or gallon != 0:
+            ans += f'{gallon} галлонов'
+        if quart != 0 and gallon != 0: ans += ', '
+        if 1 < quart % 10 < 4 or int(quart) != quart:
+            ans += f'{quart} кварты'  # (1) бушель, (2-4) бушеля, (5-9) бушелей
+        elif quart == 1:
+            ans += f'{quart} кварта'
         return ans + '.'
 
     def plus(self, lhs, rhs):
@@ -80,7 +81,7 @@ class Manager:
             raise ValueError("Полученное значение превышает максимально допустимое значение")
         return self.getter(result)
 
-    def addition_to_max_value(self, lhs, rhs):
+    def addition_to_max_value(self, lhs, rhs):  
         """Дополнение до максимального значения"""
         result = lhs.amount + rhs.amount
         if self.checker(result):
@@ -91,49 +92,53 @@ class Manager:
         """Возвращение значения в литрах"""
         if self.checker(obj.amount):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        return obj.amount
+        result = obj.amount * obj.liter_const
+        ans = 'В полученном значении '
+        return ans
 
     def to_glass(self, obj):
         """Перевод значения в стаканы"""
         const = 0.273
         if self.checker(obj.amount):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        return obj.amount / const
+        return self.to_liter(obj) / const
 
     def to_pint(self, obj):
         """Перевод значения в пинты"""
         const = 0.56826
         if self.checker(obj.amount):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        return obj.amount / const
+        return self.to_liter(obj) / const
 
 
 class Quart:
-    const = 1.1365
+    liter_const = 1.1365
 
     def __init__(self, amount):
-        self.amount = amount * self.const
+        self.amount = amount
 
 
 class Gallon:
-    const = 4.546
+    liter_const = 4.546
+    quart_const = 4
 
     def __init__(self, amount):
-        self.amount = amount * self.const
+        self.amount = amount * self.quart_const
 
 
 class Bushel:
-    const = 36.368
+    liter_const = 36.368
+    quart_const = 32
 
     def __init__(self, amount):
-        self.amount = amount * self.const
+        self.amount = amount * self.quart_const
 
 
 q1 = Quart(11)
 # g1 = Gallon(23)
 q2 = Quart(16)
-# c1 = Bushel(2)
-# c2 = Bushel(3)
+c1 = Bushel(20)
+c2 = Bushel(3)
 
 manager = Manager()
 print(manager.plus(q2, q1))
@@ -141,3 +146,6 @@ print(manager.plus(q2, q1))
 # print(manager.to_glass(q1))
 # print(manager.to_liter(q1))
 print(manager.division_by_number(q1, 4))
+print(manager.division_by_number(c1, 1))
+print(manager.division_by_number(q1, 11))
+print(manager.multiplication_by_number(q1, 2))
