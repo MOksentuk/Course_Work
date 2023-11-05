@@ -2,14 +2,14 @@ from tkinter import *
 from tkinter import font
 from tkinter import messagebox
 
-okno = Tk()
-okno['bg'] = '#8f8fbc'
-okno.title('Калькулятор')
-okno.geometry('400x400')
-okno.resizable(width=False, height=False)
+window = Tk()
+window['bg'] = '#f2b05f'
+window.title('Калькулятор')
+window.geometry('400x400')
+window.resizable(width=False, height=False)
 
-ramka = Frame(okno)
-ramka['bg'] = '#c1c1ff'
+ramka = Frame(window)
+ramka['bg'] = '#ed9121'
 ramka.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.9)
 
 title_shrift = font.Font(family='Arial', size=20)
@@ -17,7 +17,7 @@ little_shrift = font.Font(family='Arial', size=10)
 shrift = font.Font(family='Arial', size=12)
 
 def main_page():
-    task_selection = Label(ramka, text='ДОСТУПНЫЕ ОПЕРАЦИИ', bg='#c1c1ff', font=title_shrift)
+    task_selection = Label(ramka, text='ДОСТУПНЫЕ ОПЕРАЦИИ', bg='#ed9121', font=title_shrift)
     task_selection.pack()
 
     def udalenie():
@@ -34,7 +34,7 @@ def main_page():
 
     def V_KG():
         udalenie()
-        text_V_KG = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#c1c1ff')
+        text_V_KG = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')
         text_V_KG.pack()
         vz_V_KG = Entry(ramka, font=shrift)
         vz_V_KG.pack()
@@ -51,7 +51,7 @@ def main_page():
 
         rezbtn_V_KG = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_KG)
         rezbtn_V_KG.pack(pady=10)
-        rezultat_V_KG = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_V_KG = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_V_KG.pack()
 
         def Back_V_KG():
@@ -67,7 +67,7 @@ def main_page():
 
     def V_CATTI():
         udalenie()
-        text_V_CATTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#c1c1ff')
+        text_V_CATTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')
         text_V_CATTI.pack()
         vz_V_CATTI = Entry(ramka, font=shrift)
         vz_V_CATTI.pack()
@@ -84,7 +84,7 @@ def main_page():
 
         rezbtn_V_CATTI = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_CATTI)
         rezbtn_V_CATTI.pack(pady=10)
-        rezultat_V_CATTI = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_V_CATTI = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_V_CATTI.pack()
 
         def Back_V_CATTI():
@@ -100,7 +100,7 @@ def main_page():
 
     def V_FUNTI():
         udalenie()
-        text_V_FUNTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#c1c1ff')
+        text_V_FUNTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')
         text_V_FUNTI.pack()
         vz_V_FUNTI = Entry(ramka, font=shrift)
         vz_V_FUNTI.pack()
@@ -117,7 +117,7 @@ def main_page():
 
         rezbtn_V_FUNTI = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_FUNTI)
         rezbtn_V_FUNTI.pack(pady=10)
-        rezultat_V_FUNTI = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_V_FUNTI = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_V_FUNTI.pack()
 
         def Back_V_FUNTI():
@@ -131,35 +131,70 @@ def main_page():
         backbtn_V_FUNTI = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_V_FUNTI)
         backbtn_V_FUNTI.pack(side=BOTTOM)
 
+    def obratniy_perevod(a):
+        b = a // 5
+        c = b // 16
+        d = c // 10
+        e = a % 5
+        f = b % 16
+        g = c % 10
+        if d % 10 == 1:
+            h = 'берковец'
+        elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
+            h = 'берковца'
+        else:
+            h = 'берковцев'
+        if g % 10 == 1:
+            i = 'пуд'
+        elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
+            i = 'пуда'
+        else:
+            i = 'пудов'
+        if f >= 10:
+            j = 'безменов'
+        elif f % 10 == 1:
+            j = 'безмен'
+        elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
+            j = 'безмена'
+        else:
+            j = 'безменов'
+        if e % 10 == 1:
+            k = 'гривенка'
+        elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
+            k = 'гривенки'
+        else:
+            k = 'гривенок'
+        return d, h, g, i, f, j, e, k
+
     def SLOJENIE():
         udalenie()
-        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_1_slag.place(relwidth=0.5)
-        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_2_slag.place(relwidth=0.5, relx=0.5)
 
-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
         text_berk.place(relwidth=1, rely=0.1)
         entry_1_berk = Entry(ramka, font=little_shrift)
         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
         entry_2_berk = Entry(ramka, font=little_shrift)
         entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)
 
-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
         text_pud.place(relwidth=1, rely=0.2)
         entry_1_pud = Entry(ramka, font=little_shrift)
         entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)
         entry_2_pud = Entry(ramka, font=little_shrift)
         entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)
 
-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
         text_bezm.place(relwidth=1, rely=0.3)
         entry_1_bezm = Entry(ramka, font=little_shrift)
         entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)
         entry_2_bezm = Entry(ramka, font=little_shrift)
         entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)
 
-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
         text_griv.place(relwidth=1, rely=0.4)
         entry_1_griv = Entry(ramka, font=little_shrift)
         entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)
@@ -198,42 +233,8 @@ def main_page():
                 else:
                     rezultat_SLOJENIE['text'] = obratniy_perevod(a)
 
-        def obratniy_perevod(a):
-            b = a // 5
-            c = b // 16
-            d = c // 10
-            e = a % 5
-            f = b % 16
-            g = c % 10
-            if d % 10 == 1:
-                h = 'берковец'
-            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
-                h = 'берковца'
-            else:
-                h = 'берковцев'
-            if g % 10 == 1:
-                i = 'пуд'
-            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
-                i = 'пуда'
-            else:
-                i = 'пудов'
-            if f >= 10:
-                j = 'безменов'
-            elif f % 10 == 1:
-                j = 'безмен'
-            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
-                j = 'безмена'
-            else:
-                j = 'безменов'
-            if e % 10 == 1:
-                k = 'гривенка'
-            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
-                k = 'гривенки'
-            else:
-                k = 'гривенок'
-            return d, h, g, i, f, j, e, k
 
-        rezultat_SLOJENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_SLOJENIE = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_SLOJENIE.place(relwidth=1, rely=0.7)
 
         rezbtn_SLOJENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_SLOJENIE)
@@ -264,33 +265,33 @@ def main_page():
 
     def VICHITANIE():
         udalenie()
-        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_1_slag.place(relwidth=0.5)
-        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_2_slag.place(relwidth=0.5, relx=0.5)
 
-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
         text_berk.place(relwidth=1, rely=0.1)
         entry_1_berk = Entry(ramka, font=little_shrift)
         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
         entry_2_berk = Entry(ramka, font=little_shrift)
         entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)
 
-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
         text_pud.place(relwidth=1, rely=0.2)
         entry_1_pud = Entry(ramka, font=little_shrift)
         entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)
         entry_2_pud = Entry(ramka, font=little_shrift)
         entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)
 
-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
         text_bezm.place(relwidth=1, rely=0.3)
         entry_1_bezm = Entry(ramka, font=little_shrift)
         entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)
         entry_2_bezm = Entry(ramka, font=little_shrift)
         entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)
 
-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
         text_griv.place(relwidth=1, rely=0.4)
         entry_1_griv = Entry(ramka, font=little_shrift)
         entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)
@@ -329,42 +330,8 @@ def main_page():
                 else:
                     rezultat_VICHITANIE['text'] = obratniy_perevod(a)
 
-        def obratniy_perevod(a):
-            b = a // 5
-            c = b // 16
-            d = c // 10
-            e = a % 5
-            f = b % 16
-            g = c % 10
-            if d % 10 == 1:
-                h = 'берковец'
-            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
-                h = 'берковца'
-            else:
-                h = 'берковцев'
-            if g % 10 == 1:
-                i = 'пуд'
-            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
-                i = 'пуда'
-            else:
-                i = 'пудов'
-            if f >= 10:
-                j = 'безменов'
-            elif f % 10 == 1:
-                j = 'безмен'
-            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
-                j = 'безмена'
-            else:
-                j = 'безменов'
-            if e % 10 == 1:
-                k = 'гривенка'
-            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
-                k = 'гривенки'
-            else:
-                k = 'гривенок'
-            return d, h, g, i, f, j, e, k
 
-        rezultat_VICHITANIE = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_VICHITANIE = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_VICHITANIE.place(relwidth=1, rely=0.7)
 
         rezbtn_VICHITANIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_VICHITANIE)
@@ -395,27 +362,27 @@ def main_page():
 
     def UMNOJENIE():
         udalenie()
-        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_znach.place(relwidth=0.5)
-        text_mnojitel = Label(ramka, text='МНОЖИТЕЛЬ', font=shrift, bg='#c1c1ff')
+        text_mnojitel = Label(ramka, text='МНОЖИТЕЛЬ', font=shrift, bg='#ed9121')
         text_mnojitel.place(relwidth=0.5, relx=0.5)
 
-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
         text_berk.place(relx=0.06, rely=0.1)
         entry_1_berk = Entry(ramka, font=little_shrift)
         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
 
-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
         text_pud.place(relx=0.09, rely=0.25)
         entry_1_pud = Entry(ramka, font=little_shrift)
         entry_1_pud.place(relwidth=0.25, rely=0.3, relx=0.125)
 
-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
         text_bezm.place(relx=0.07, rely=0.4)
         entry_1_bezm = Entry(ramka, font=little_shrift)
         entry_1_bezm.place(relwidth=0.25, rely=0.45, relx=0.125)
 
-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
         text_griv.place(relx=0.07, rely=0.55)
         entry_1_griv = Entry(ramka, font=little_shrift)
         entry_1_griv.place(relwidth=0.25, rely=0.6, relx=0.125)
@@ -445,42 +412,9 @@ def main_page():
                 else:
                     rezultat_UMNOJENIE['text'] = obratniy_perevod(a)
 
-        def obratniy_perevod(a):
-            b = a // 5
-            c = b // 16
-            d = c // 10
-            e = a % 5
-            f = b % 16
-            g = c % 10
-            if d % 10 == 1:
-                h = 'берковец'
-            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
-                h = 'берковца'
-            else:
-                h = 'берковцев'
-            if g % 10 == 1:
-                i = 'пуд'
-            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
-                i = 'пуда'
-            else:
-                i = 'пудов'
-            if f >= 10:
-                j = 'безменов'
-            elif f % 10 == 1:
-                j = 'безмен'
-            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
-                j = 'безмена'
-            else:
-                j = 'безменов'
-            if e % 10 == 1:
-                k = 'гривенка'
-            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
-                k = 'гривенки'
-            else:
-                k = 'гривенок'
-            return d, h, g, i, f, j, e, k
 
-        rezultat_UMNOJENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+
+        rezultat_UMNOJENIE = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_UMNOJENIE.place(relwidth=1, rely=0.75)
 
         rezbtn_UMNOJENIE = Button(ramka, text='Узнать\nрезультат', font=shrift, bg='grey', command=REZULTAT_UMNOJENIE)
@@ -508,27 +442,27 @@ def main_page():
 
     def DELENIE():
         udalenie()
-        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_znach.place(relwidth=0.5)
-        text_delitel = Label(ramka, text='ДЕЛИТЕЛЬ', font=shrift, bg='#c1c1ff')
+        text_delitel = Label(ramka, text='ДЕЛИТЕЛЬ', font=shrift, bg='#ed9121')
         text_delitel.place(relwidth=0.5, relx=0.5)
 
-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
         text_berk.place(relx=0.06, rely=0.1)
         entry_1_berk = Entry(ramka, font=little_shrift)
         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
 
-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
         text_pud.place(relx=0.09, rely=0.25)
         entry_1_pud = Entry(ramka, font=little_shrift)
         entry_1_pud.place(relwidth=0.25, rely=0.3, relx=0.125)
 
-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
         text_bezm.place(relx=0.07, rely=0.4)
         entry_1_bezm = Entry(ramka, font=little_shrift)
         entry_1_bezm.place(relwidth=0.25, rely=0.45, relx=0.125)
 
-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
         text_griv.place(relx=0.07, rely=0.55)
         entry_1_griv = Entry(ramka, font=little_shrift)
         entry_1_griv.place(relwidth=0.25, rely=0.6, relx=0.125)
@@ -558,42 +492,8 @@ def main_page():
                 else:
                     rezultat_DELENIE['text'] = obratniy_perevod(a)
 
-        def obratniy_perevod(a):
-            b = a // 5
-            c = b // 16
-            d = c // 10
-            e = a % 5
-            f = b % 16
-            g = c % 10
-            if d % 10 == 1:
-                h = 'берковец'
-            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
-                h = 'берковца'
-            else:
-                h = 'берковцев'
-            if g % 10 == 1:
-                i = 'пуд'
-            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
-                i = 'пуда'
-            else:
-                i = 'пудов'
-            if f >= 10:
-                j = 'безменов'
-            elif f % 10 == 1:
-                j = 'безмен'
-            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
-                j = 'безмена'
-            else:
-                j = 'безменов'
-            if e % 10 == 1:
-                k = 'гривенка'
-            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
-                k = 'гривенки'
-            else:
-                k = 'гривенок'
-            return d, h, g, i, f, j, e, k
 
-        rezultat_DELENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_DELENIE = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_DELENIE.place(relwidth=1, rely=0.75)
 
         rezbtn_DELENIE = Button(ramka, text='Узнать\nрезультат', font=shrift, bg='grey', command=REZULTAT_DELENIE)
@@ -621,33 +521,33 @@ def main_page():
 
     def SRAVNENIE():
         udalenie()
-        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_1_slag.place(relwidth=0.5)
-        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
         text_2_slag.place(relwidth=0.5, relx=0.5)
 
-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
         text_berk.place(relwidth=1, rely=0.1)
         entry_1_berk = Entry(ramka, font=little_shrift)
         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
         entry_2_berk = Entry(ramka, font=little_shrift)
         entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)
 
-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
         text_pud.place(relwidth=1, rely=0.2)
         entry_1_pud = Entry(ramka, font=little_shrift)
         entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)
         entry_2_pud = Entry(ramka, font=little_shrift)
         entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)
 
-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
         text_bezm.place(relwidth=1, rely=0.3)
         entry_1_bezm = Entry(ramka, font=little_shrift)
         entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)
         entry_2_bezm = Entry(ramka, font=little_shrift)
         entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)
 
-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
         text_griv.place(relwidth=1, rely=0.4)
         entry_1_griv = Entry(ramka, font=little_shrift)
         entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)
@@ -694,7 +594,7 @@ def main_page():
             else:
                 return 'Числа РАВНЫ между собой'
 
-        rezultat_SRAVNENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+        rezultat_SRAVNENIE = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_SRAVNENIE.place(relwidth=1, rely=0.7)
 
         rezbtn_SRAVNENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_SRAVNENIE)
@@ -725,20 +625,20 @@ def main_page():
 
     def DOPOLNENIE():
         udalenie()
-        text_znach = Label(ramka, text='Введите значение веса', font=shrift, bg='#c1c1ff')
+        text_znach = Label(ramka, text='Введите значение веса', font=shrift, bg='#ed9121')
         text_znach.pack()
 
-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
         text_pud.pack()
         entry_1_pud = Entry(ramka, font=little_shrift)
         entry_1_pud.pack()
 
-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
         text_bezm.pack()
         entry_1_bezm = Entry(ramka, font=little_shrift)
         entry_1_bezm.pack()
 
-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
         text_griv.pack()
         entry_1_griv = Entry(ramka, font=little_shrift)
         entry_1_griv.pack()
@@ -760,36 +660,9 @@ def main_page():
                 else:
                     rezultat_DOPOLNENIE['text'] = obratniy_perevod(a)
 
-        def obratniy_perevod(a):
-            b = a // 5
-            c = b // 16
-            e = a % 5
-            f = b % 16
-            g = c % 10
-            q = 'До берковца не хватает\n'
-            if g % 10 == 1:
-                i = 'пуд'
-            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
-                i = 'пуда'
-            else:
-                i = 'пудов'
-            if f >= 10:
-                j = 'безменов'
-            elif f % 10 == 1:
-                j = 'безмен'
-            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
-                j = 'безмена'
-            else:
-                j = 'безменов'
-            if e % 10 == 1:
-                k = 'гривенка'
-            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
-                k = 'гривенки'
-            else:
-                k = 'гривенок'
-            return q, g, i, f, j, e, k
 
-        rezultat_DOPOLNENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+
+        rezultat_DOPOLNENIE = Label(ramka, font=shrift, bg='#ed9121')
         rezultat_DOPOLNENIE.place(relwidth=1, rely=0.75)
 
         rezbtn_DOPOLNENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_DOPOLNENIE)
@@ -831,4 +704,4 @@ def main_page():
     dopolnenie.pack()
 
 main_page()
-okno.mainloop()
+window.mainloop()
