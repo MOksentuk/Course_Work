@@ -4,16 +4,20 @@ class Manager:
     __pint_const = 0.56826
 
     @staticmethod
-    def checker(amount):
+    def checker(*objects):
         """Проверка превышения максимально допустимого значения"""
         check_const = 2560
-        if amount > check_const:
-            return True
+
+        for obj in objects:
+            if obj > check_const:
+                raise ValueError("Передано недопустимое значение")
 
     @staticmethod
     def summator(*objects):
         ans = 0
-        for obj in objects: ans += obj.amount
+        for obj in objects:
+            ans += obj.amount
+
         return ans
 
     @staticmethod
@@ -30,7 +34,7 @@ class Manager:
 
     def returner(self, value):
         """Перевод из литров в начальные меры объёма"""
-        if value==0:
+        if value == 0:
             return 'Полученное значение 0'
         bushel_const = 32
         gallon_const = 4
@@ -52,19 +56,19 @@ class Manager:
 
     def plus(self, lhs, rhs):
         """Сложение двух значений"""
-        if self.checker(lhs.amount) or self.checker(rhs.amount):
-            raise ValueError("Передано недопустимое значение")
+        self.checker(lhs.amount, rhs.amount)
+
         result = lhs.amount + rhs.amount
         if self.checker(result):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        return 'В полученном значении '+self.returner(result)
+        return 'В полученном значении ' + self.returner(self.summator(lhs, rhs))
 
     def minus(self, lhs, rhs):
         """Вычитание двух значений"""
-        if self.checker(lhs.amount) or self.checker(rhs.amount):
-            raise ValueError("Передано недопустимое значение")
+        self.checker(lhs, rhs)
+
         result = lhs.amount - rhs.amount
-        return 'В полученном значении '+self.returner(result)
+        return 'В полученном значении ' + self.returner(result)
 
     def comparison(self, lhs, rhs):
         """Сравнение двух значений"""
@@ -83,14 +87,14 @@ class Manager:
         if self.checker(obj.amount):
             raise ValueError("Переданное значение превышает максимально допустимое значение")
         result = obj.amount / const
-        return 'В полученном значении '+self.returner(result)
+        return 'В полученном значении ' + self.returner(result)
 
     def multiplication_by_number(self, lhs, const):
         """Умножение на число"""
         result = lhs.amount * const
         if self.checker(result):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        return 'В полученном значении '+self.returner(result)
+        return 'В полученном значении ' + self.returner(result)
 
     def addition_to_max_value(self, obj):
         """Дополнение до максимального значения"""
@@ -98,7 +102,7 @@ class Manager:
             raise ValueError("Полученное значение превышает максимально допустимое значение")
         max_value = 256
         result = obj.amount - max_value
-        return 'В полученном значении '+self.returner(result)
+        return 'В полученном значении ' + self.returner(result)
 
     def to_liter(self, obj):
         """Возвращение значения в литрах"""

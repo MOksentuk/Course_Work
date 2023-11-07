@@ -11,7 +11,7 @@ def main():
     c1 = Bushel(20)
     c2 = Bushel(3)
     c3 = Bushel(1)
-
+    # 1 2 3 (+-/*) 1 2 3
     manager = Manager()
     print(manager.plus(q2, q1))
     print(manager.minus(c2, c1))
