@@ -61,7 +61,7 @@ class Manager:
         result = lhs.amount + rhs.amount
         if self.checker(result):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        return 'В полученном значении ' + self.returner(self.summator(lhs, rhs))
+        return 'В полученном значении ' + self.returner(result)
 
     def minus(self, lhs, rhs):
         """Вычитание двух значений"""
