@@ -1,7 +1,7 @@
 class Manager:
-    liter_const = 1.1365
-    glass_const = 0.273
-    pint_const = 0.56826
+    __liter_const = 1.1365
+    __glass_const = 0.273
+    __pint_const = 0.56826
 
     @staticmethod
     def checker(amount):
@@ -104,7 +104,7 @@ class Manager:
         """Возвращение значения в литрах"""
         if self.checker(obj.amount):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        result = obj.amount * self.liter_const
+        result = obj.amount * self.__liter_const
         ans = 'В полученном значении '
         return ans + self.decorator(result, 'литра', 'литр', 'литров')
 
@@ -112,7 +112,7 @@ class Manager:
         """Перевод значения в стаканы"""
         if self.checker(obj.amount):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        result = obj.amount * self.liter_const / self.glass_const
+        result = obj.amount * self.__liter_const / self.__glass_const
         ans = 'В полученном значении '
         return ans + self.decorator(result, 'стакана', 'стакан', 'стаканов')
 
@@ -120,6 +120,6 @@ class Manager:
         """Перевод значения в пинты"""
         if self.checker(obj.amount):
             raise ValueError("Полученное значение превышает максимально допустимое значение")
-        result = obj.amount * self.liter_const / self.pint_const
+        result = obj.amount * self.__liter_const / self.__pint_const
         ans = 'В полученном значении '
         return ans + self.decorator(result, 'пинты', 'пинта', 'пинт')
