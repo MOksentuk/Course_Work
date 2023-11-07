@@ -11,6 +11,7 @@ def main():
     c1 = Bushel(20)
     c2 = Bushel(3)
     c3 = Bushel(1)
+
     manager = Manager()
     print(manager.plus(q2, q1))
     print(manager.minus(c2, c1))
@@ -22,3 +23,7 @@ def main():
     print(manager.multiplication_by_number(c1, 4))
     print(manager.multiplication_by_number(q1, 0))
     # print(manager.multiplication_by_number(manager.summator(q1, g1, c2), 2)
+
+
+if __name__ == "__main__":
+    main()
