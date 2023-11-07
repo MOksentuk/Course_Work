@@ -9,7 +9,7 @@ class Manager:
         check_const = 2560
 
         for obj in objects:
-            if obj > check_const:
+            if obj.amount > check_const:
                 raise ValueError("Передано недопустимое значение")
 
     @staticmethod
