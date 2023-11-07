@@ -18,6 +18,7 @@ class Manager:
 
     @staticmethod
     def decorator(value, name_1, name_2, name_3):
+        """Расстановка окончаний в выводе в зависимости от значения"""
         ans = ''
         if 1 < abs(value % 10) < 5 or int(value) != value:
             ans += f'{value} {name_1}'
