@@ -1,21 +1,12 @@
 class Manager:
-
     @staticmethod
-    def checker(*objects):
+    def checker(obj):
         """Проверка превышения максимально допустимого значения"""
         check_const = 2560
 
-        for obj in objects:
-            if obj > check_const:
-                raise ValueError("Передано недопустимое значение")
-
-    @staticmethod
-    def summator(*objects):
-        ans = 0
-        for obj in objects:
-            ans += obj.amount
-
-        return ans
+        # for obj.amount in objects:
+        if obj > check_const:
+            raise ValueError("Передано недопустимое значение")
 
     @staticmethod
     def decorator(value, name_1, name_2, name_3):
@@ -32,7 +23,8 @@ class Manager:
     def returner(self, value):
         """Перевод из литров в начальные меры объёма"""
         if value == 0:
-            return 'Полученное значение 0'
+            return 'Полученное значение равно 0'
+        self.checker(value)
         bushel_const = 32
         gallon_const = 4
         bushel = value // bushel_const
