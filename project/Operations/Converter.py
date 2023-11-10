@@ -3,20 +3,20 @@ class Converter:
     __glass_const = 0.273
     __pint_const = 0.56826
 
-    def to_liter(self, obj):
+    def to_liter(self, amount):
         """Возвращение значения в литрах"""
-        result = obj.amount * self.__liter_const
+        result = amount * self.__liter_const
 
         return result
 
-    def to_glass(self, obj):
+    def to_glass(self, amount):
         """Перевод значения в стаканы"""
-        result = obj.amount * self.__liter_const / self.__glass_const
+        result = amount * self.__liter_const / self.__glass_const
 
         return result
 
-    def to_pint(self, obj):
+    def to_pint(self, amount):
         """Перевод значения в пинты"""
-        result = obj.amount * self.__liter_const / self.__pint_const
+        result = amount * self.__liter_const / self.__pint_const
 
         return result
