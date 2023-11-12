@@ -1,15 +1,14 @@
 class Manager:
     @staticmethod
-    def checker(obj):
-        """Проверка превышения максимально допустимого значения"""
+    def checker(amount):
+        """Проверка допустимого значения"""
         check_const = 2560
 
-        # for obj.amount in objects:
-        if obj > check_const:
+        if not amount.isdigit() or amount > check_const:
             raise ValueError("Передано недопустимое значение")
 
     @staticmethod
-    def decorator(value, name_1, name_2, name_3):
+    def decorator(value, name_1, name_2, name_3) -> str:
         """Расстановка окончаний в выводе в зависимости от значения"""
         ans = ''
         if 1 < abs(value % 10) < 5 or int(value) != value:
@@ -20,7 +19,7 @@ class Manager:
             ans += f'{value} {name_3}'
         return ans
 
-    def returner(self, value):
+    def returner(self, value) -> str:
         """Перевод из литров в начальные меры объёма"""
         if value == 0:
             return 'Полученное значение равно 0'
