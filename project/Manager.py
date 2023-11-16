@@ -1,11 +1,18 @@
 class Manager:
     @staticmethod
-    def checker(amount):
+    def check_is_digit(amount):
+        if amount != '':
+            if not str(amount).isdigit():
+                raise ValueError("Передано недопустимое значение")
+
+    @staticmethod
+    def check_max_value(amount):
         """Проверка допустимого значения"""
         check_const = 2560
 
-        if not amount.isdigit() or amount > check_const:
-            raise ValueError("Передано недопустимое значение")
+        if amount != '':
+            if abs(float(amount)) > check_const:
+                raise ValueError("Передано недопустимое значение")
 
     @staticmethod
     def decorator(value, name_1, name_2, name_3) -> str:
@@ -23,7 +30,7 @@ class Manager:
         """Перевод из литров в начальные меры объёма"""
         if value == 0:
             return 'Полученное значение равно 0'
-        self.checker(value)
+        self.check_max_value(value)
         bushel_const = 32
         gallon_const = 4
         bushel = value // bushel_const
