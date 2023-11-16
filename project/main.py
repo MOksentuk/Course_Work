@@ -33,9 +33,9 @@ def main():
         quart1 = input('Значение в квартах: ')
         gallon1 = input('Значение в галлонах: ')
         bushel1 = input('Значение в бушелях: ')
-        manager.checker(quart1)
-        manager.checker(gallon1)
-        manager.checker(bushel1)
+        manager.check_is_digit(quart1)
+        manager.check_is_digit(gallon1)
+        manager.check_is_digit(bushel1)
 
 
 # q1 = Quart(1)

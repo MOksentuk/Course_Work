@@ -17,7 +17,7 @@ class ToUser:
         # gallon = input('Значение в галлонах: ')
         # bushel = input('Значение в бушелях: ')
 
-        self.manager.checker(amount)
+        self.manager.check_is_digit(amount)
         return amount
         # self.manager.checker(gallon)
         # self.manager.checker(bushel)
@@ -36,4 +36,4 @@ class ToUser:
 #     print(a)
 # else:
 #     print('Nothing')
-ToUser.init('o')
+# ToUser.init('o')

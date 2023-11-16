@@ -29,7 +29,6 @@
 #     mayank.sendCourse("Data Structures and Algorithms")
 #     lakshya.sendCourse("Software Development Engineer")
 #     krishna.sendCourse("Standard Template Library")
-print(str(abs(-3)).isdigit())
 
 
 from Models.Quart import Quart
@@ -39,8 +38,9 @@ from Models.Storage import Storage
 from Manager import Manager
 from Operations.Converter import Converter
 from Operations.Math import MathOperations
+
 # from ToUser import ToUser
-manager=Manager()
+manager = Manager()
 q1 = Quart(1)
 q2 = Quart(2)
 g1 = Gallon(1)
