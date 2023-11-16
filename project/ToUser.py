@@ -8,13 +8,27 @@ from Operations.Math import MathOperations
 
 
 class ToUser:
+    manager = Manager()
 
-    def __setattr__(self, key, value):
-        self.amount = None
-        # if amount != '':
-        #     self.amount += int(amount)
+    def init(self, name):
+        f = f'Значение в : '
+        print(f)
+        amount = input()
+        # gallon = input('Значение в галлонах: ')
+        # bushel = input('Значение в бушелях: ')
 
-    obj1 = Storage([])
+        self.manager.checker(amount)
+        return amount
+        # self.manager.checker(gallon)
+        # self.manager.checker(bushel)
+
+    # def __setattr__(self, key, value):
+    #     self.amount = None
+    # if amount != '':
+    #     self.amount += int(amount)
+
+    # obj1 = Storage([])
+
 
 # a=input()
 # b=input()
@@ -22,3 +36,4 @@ class ToUser:
 #     print(a)
 # else:
 #     print('Nothing')
+ToUser.init('o')
