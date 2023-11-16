@@ -1,0 +1,1074 @@
+Index: test.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># class РодительскийКласс:\r\n#     def __init__(self, атрибут_родительского_класса):\r\n#         self.атрибут_родительского_класса = атрибут_родительского_класса\r\n#\r\n#     def метод_родительского_класса(self):\r\n#         print(\"Метод родительского класса\")\r\n#\r\n# class Подкласс(РодительскийКласс):\r\n#     def __init__(self, атрибут_родительского_класса, атрибут_подкласса):\r\n#         # Вызываем конструктор родительского класса\r\n#         super().__init__(атрибут_родительского_класса)\r\n#         self.атрибут_подкласса = атрибут_подкласса\r\n#\r\n#     def метод_подкласса(self):\r\n#         print(\"Метод подкласса\")\r\n#\r\n# # Создаем объекты на основе родительского и подкласса\r\n# родительский_объект = РодительскийКласс(\"Атрибут родительского класса\")\r\n# подкласс_объект = Подкласс(\"Атрибут родительского класса\", \"Атрибут подкласса\")\r\n#\r\n# print(родительский_объект.атрибут_родительского_класса)\r\n# родительский_объект.метод_родительского_класса()\r\n#\r\n# print(подкласс_объект.атрибут_родительского_класса)\r\n# print(подкласс_объект.атрибут_подкласса)\r\n# подкласс_объект.метод_родительского_класса()\r\n# подкласс_объект.метод_подкласса()\r\nval = float(input())\r\na=str(val)[-2::]\r\nif a!='.0':\r\n    print('yes', a)\r\nprint(a)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/test.py b/test.py
+--- a/test.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ b/test.py	(date 1699450597150)
+@@ -1,32 +1,50 @@
+-# class РодительскийКласс:
+-#     def __init__(self, атрибут_родительского_класса):
+-#         self.атрибут_родительского_класса = атрибут_родительского_класса
+-#
+-#     def метод_родительского_класса(self):
+-#         print("Метод родительского класса")
+-#
+-# class Подкласс(РодительскийКласс):
+-#     def __init__(self, атрибут_родительского_класса, атрибут_подкласса):
+-#         # Вызываем конструктор родительского класса
+-#         super().__init__(атрибут_родительского_класса)
+-#         self.атрибут_подкласса = атрибут_подкласса
+-#
+-#     def метод_подкласса(self):
+-#         print("Метод подкласса")
+-#
+-# # Создаем объекты на основе родительского и подкласса
+-# родительский_объект = РодительскийКласс("Атрибут родительского класса")
+-# подкласс_объект = Подкласс("Атрибут родительского класса", "Атрибут подкласса")
+-#
+-# print(родительский_объект.атрибут_родительского_класса)
+-# родительский_объект.метод_родительского_класса()
+-#
+-# print(подкласс_объект.атрибут_родительского_класса)
+-# print(подкласс_объект.атрибут_подкласса)
+-# подкласс_объект.метод_родительского_класса()
+-# подкласс_объект.метод_подкласса()
+-val = float(input())
+-a=str(val)[-2::]
+-if a!='.0':
+-    print('yes', a)
+-print(a)
+\ No newline at end of file
++class Manager:
++    def to_liter(self, obj):
++        return obj.amount * obj.const
++    def to_glass(self, obj):
++        const = 0.273
++        return obj.amount / const
++
++
++class Quart:
++    const = 1.1365
++
++    def __init__(self, amount):
++        self.amount = amount
++
++
++q1 = Quart(12)
++
++manager = Manager()
++print(manager.to_glass(q1))
++# тесчу работу с ноута fgjdkg,fgjdnf
++# и я всё ещё могу здесь работать
++
++
++class РодительскийКласс:
++    def __init__(self, атрибут_родительского_класса):
++        self.атрибут_родительского_класса = атрибут_родительского_класса
++
++    def метод_родительского_класса(self):
++        print("Метод родительского класса")
++
++class Подкласс(РодительскийКласс):
++    def __init__(self, атрибут_родительского_класса, атрибут_подкласса):
++        # Вызываем конструктор родительского класса
++        super().__init__(атрибут_родительского_класса)
++        self.атрибут_подкласса = атрибут_подкласса
++
++    def метод_подкласса(self):
++        print("Метод подкласса")
++
++# Создаем объекты на основе родительского и подкласса
++родительский_объект = РодительскийКласс("Атрибут родительского класса")
++подкласс_объект = Подкласс("Атрибут родительского класса", "Атрибут подкласса")
++
++print(родительский_объект.атрибут_родительского_класса)
++родительский_объект.метод_родительского_класса()
++
++print(подкласс_объект.атрибут_родительского_класса)
++print(подкласс_объект.атрибут_подкласса)
++подкласс_объект.метод_родительского_класса()
++подкласс_объект.метод_подкласса()
+\ No newline at end of file
+Index: bones.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>class Manager:\r\n    @staticmethod\r\n    def checker(amount):\r\n        \"\"\"Проверки превышения максимально допустимого значения\"\"\"\r\n        check_const = 2909.4\r\n\r\n        return amount > check_const\r\n\r\n    @staticmethod\r\n    def getter(value):\r\n        \"\"\"Перевод из литров в начальные меры объёма\"\"\"\r\n        bushel_const = 36.368\r\n        gallon_const = 4.546\r\n        quart_const = 1.1365\r\n        bushel = str(value // bushel_const)\r\n        gallon = (value % bushel_const) // gallon_const\r\n        quart = (value % bushel_const % gallon_const) // quart_const\r\n        ans = 'В полученном значении '\r\n        if bushel[-1] == '1':\r\n            ans += bushel + ' бушель'\r\n        elif bushel[-1] in '234':\r\n            ans += bushel + ' бушелей'  # (1) бушель, (2-4) бушеля, (5-9) бушелей\r\n        elif bushel[-1] in '56789' or bushel != '0.0':\r\n            ans += bushel + ' бушелей'\r\n        if bushel != '0.0' and gallon != 0:\r\n            ans += ', '\r\n        if gallon == 1:\r\n            ans += str(gallon) + ' галлон'  # 1 кварта, 2-3 кварты\r\n        elif 1 < gallon < 5:\r\n            ans += str(gallon) + ' галлона'\r\n        elif 4 < gallon < 8:\r\n            ans += str(gallon) + ' галлонов'  # 1 галлон, 2-4 галлона, 5-7 галлонов\r\n        if quart != 0 and gallon != 0:\r\n            ans += ', '\r\n        if quart == 1:\r\n            ans += str(quart) + ' кварта'  # 1 кварта, 2-3 кварты\r\n        elif 1 < quart < 4:\r\n            ans += str(quart) + ' кварты'\r\n        return ans + '.'\r\n\r\n    def plus(self, lhs, rhs):\r\n        \"\"\"Сложение двух значений\"\"\"\r\n        if self.checker(lhs.amount) or self.checker(rhs.amount):\r\n            raise ValueError(\"Переданное значение превышает максимально допустимое значение\")\r\n        result = lhs.amount + rhs.amount\r\n        if self.checker(result):\r\n            raise ValueError(\"Полученное значение превышает максимально допустимое значение\")\r\n        return self.getter(result)\r\n\r\n    def minus(self, lhs, rhs):\r\n        \"\"\"Вычитание двух значений\"\"\"\r\n        if self.checker(lhs.amount) or self.checker(rhs.amount):\r\n            raise ValueError(\"Переданное значение превышает максимально допустимое значение\")\r\n        result = lhs.amount - rhs.amount\r\n        return self.getter(result)\r\n\r\n    def comparison(self, lhs, rhs):\r\n        \"\"\"Сравнение двух значений\"\"\"\r\n        if self.checker(lhs.amount) or self.checker(rhs.amount):\r\n            raise ValueError(\"Переданное значение превышает максимально допустимое значение\")\r\n        result = abs(lhs.amount - rhs.amount)\r\n        if lhs > rhs:\r\n            return 'Первое значение больше второго на', result.getter\r\n        elif lhs < rhs:\r\n            return 'Первое значение меньше второго на', result.getter\r\n        else:\r\n            return 'Значения равны'\r\n\r\n    def division_by_number(self, obj, const):\r\n        \"\"\"Деление на число\"\"\"\r\n        if self.checker(obj.amount):\r\n            raise ValueError(\"Переданное значение превышает максимально допустимое значение\")\r\n        result = obj.amount / const\r\n        return self.getter(result)\r\n\r\n    def multiplication_by_number(self, lhs, const):\r\n        \"\"\"Умножение на число\"\"\"\r\n        result = lhs.amount * const\r\n        if self.checker(result):\r\n            raise ValueError(\"Полученное значение превышает максимально допустимое значение\")\r\n        return self.getter(result)\r\n\r\n    def addition_to_max_value(self, lhs, rhs):\r\n        \"\"\"Дополнение до максимального значения\"\"\"\r\n        result = lhs.amount + rhs.amount\r\n        if self.checker(result):\r\n            raise ValueError(\"Полученное значение превышает максимально допустимое значение\")\r\n        return self.getter(result)\r\n\r\n    def to_liter(self, obj):\r\n        \"\"\"Возвращение значения в литрах\"\"\"\r\n        if self.checker(obj.amount):\r\n            raise ValueError(\"Полученное значение превышает максимально допустимое значение\")\r\n        return obj.amount\r\n\r\n    def to_glass(self, obj):\r\n        \"\"\"Перевод значения в стаканы\"\"\"\r\n        const = 0.273\r\n        if self.checker(obj.amount):\r\n            raise ValueError(\"Полученное значение превышает максимально допустимое значение\")\r\n        return obj.amount / const\r\n\r\n    def to_pint(self, obj):\r\n        \"\"\"Перевод значения в пинты\"\"\"\r\n        const = 0.56826\r\n        if self.checker(obj.amount):\r\n            raise ValueError(\"Полученное значение превышает максимально допустимое значение\")\r\n        return obj.amount / const\r\n\r\n\r\nclass Quart:\r\n    const = 1.1365\r\n\r\n    def __init__(self, amount):\r\n        self.amount = amount * self.const\r\n\r\n\r\nclass Gallon:\r\n    const = 4.546\r\n\r\n    def __init__(self, amount):\r\n        self.amount = amount * self.const\r\n\r\n\r\nclass Bushel:\r\n    const = 36.368\r\n\r\n    def __init__(self, amount):\r\n        self.amount = amount * self.const\r\n\r\n\r\nq1 = Quart(11)\r\n# g1 = Gallon(23)\r\nq2 = Quart(16)\r\n# c1 = Bushel(2)\r\n# c2 = Bushel(3)\r\n\r\nmanager = Manager()\r\nprint(manager.plus(q2, q1))\r\n# print(manager.plus(c2, c1))\r\n# print(manager.to_glass(q1))\r\n# print(manager.to_liter(q1))\r\nprint(manager.division_by_number(q1, 4))\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/bones.py b/bones.py
+--- a/bones.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ b/bones.py	(date 1699450597148)
+@@ -1,143 +1,58 @@
+ class Manager:
+-    @staticmethod
+-    def checker(amount):
+-        """Проверки превышения максимально допустимого значения"""
++    def checker(self, obj):
+         check_const = 2909.4
+ 
+-        return amount > check_const
+-
+-    @staticmethod
+-    def getter(value):
+-        """Перевод из литров в начальные меры объёма"""
+-        bushel_const = 36.368
+-        gallon_const = 4.546
+-        quart_const = 1.1365
+-        bushel = str(value // bushel_const)
+-        gallon = (value % bushel_const) // gallon_const
+-        quart = (value % bushel_const % gallon_const) // quart_const
+-        ans = 'В полученном значении '
+-        if bushel[-1] == '1':
+-            ans += bushel + ' бушель'
+-        elif bushel[-1] in '234':
+-            ans += bushel + ' бушелей'  # (1) бушель, (2-4) бушеля, (5-9) бушелей
+-        elif bushel[-1] in '56789' or bushel != '0.0':
+-            ans += bushel + ' бушелей'
+-        if bushel != '0.0' and gallon != 0:
+-            ans += ', '
+-        if gallon == 1:
+-            ans += str(gallon) + ' галлон'  # 1 кварта, 2-3 кварты
+-        elif 1 < gallon < 5:
+-            ans += str(gallon) + ' галлона'
+-        elif 4 < gallon < 8:
+-            ans += str(gallon) + ' галлонов'  # 1 галлон, 2-4 галлона, 5-7 галлонов
+-        if quart != 0 and gallon != 0:
+-            ans += ', '
+-        if quart == 1:
+-            ans += str(quart) + ' кварта'  # 1 кварта, 2-3 кварты
+-        elif 1 < quart < 4:
+-            ans += str(quart) + ' кварты'
+-        return ans + '.'
++        return obj.amount < check_const  #
+ 
+-    def plus(self, lhs, rhs):
+-        """Сложение двух значений"""
+-        if self.checker(lhs.amount) or self.checker(rhs.amount):
+-            raise ValueError("Переданное значение превышает максимально допустимое значение")
+-        result = lhs.amount + rhs.amount
+-        if self.checker(result):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return self.getter(result)
++    def plus(self, lhs, rhs) -> int:
++        result = lhs.amount * lhs.const + rhs.amount * rhs.const
++        self.checker(result)
+ 
+-    def minus(self, lhs, rhs):
+-        """Вычитание двух значений"""
+-        if self.checker(lhs.amount) or self.checker(rhs.amount):
+-            raise ValueError("Переданное значение превышает максимально допустимое значение")
+-        result = lhs.amount - rhs.amount
+-        return self.getter(result)
+-
+-    def comparison(self, lhs, rhs):
+-        """Сравнение двух значений"""
+-        if self.checker(lhs.amount) or self.checker(rhs.amount):
+-            raise ValueError("Переданное значение превышает максимально допустимое значение")
+-        result = abs(lhs.amount - rhs.amount)
+-        if lhs > rhs:
+-            return 'Первое значение больше второго на', result.getter
+-        elif lhs < rhs:
+-            return 'Первое значение меньше второго на', result.getter
+-        else:
+-            return 'Значения равны'
+-
+-    def division_by_number(self, obj, const):
+-        """Деление на число"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Переданное значение превышает максимально допустимое значение")
+-        result = obj.amount / const
+-        return self.getter(result)
+-
+-    def multiplication_by_number(self, lhs, const):
+-        """Умножение на число"""
+-        result = lhs.amount * const
+-        if self.checker(result):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return self.getter(result)
+-
+-    def addition_to_max_value(self, lhs, rhs):
+-        """Дополнение до максимального значения"""
+-        result = lhs.amount + rhs.amount
+-        if self.checker(result):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return self.getter(result)
++        return result
+ 
+     def to_liter(self, obj):
+-        """Возвращение значения в литрах"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return obj.amount
++        return obj.amount * obj.const
+ 
+     def to_glass(self, obj):
+-        """Перевод значения в стаканы"""
+         const = 0.273
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return obj.amount / const
++        return obj.amount * obj.const / const
+ 
+     def to_pint(self, obj):
+-        """Перевод значения в пинты"""
+         const = 0.56826
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return obj.amount / const
++        return obj.amount * obj.const / const
+ 
+ 
+ class Quart:
+     const = 1.1365
+ 
+     def __init__(self, amount):
+-        self.amount = amount * self.const
++        self.amount = amount * 1.1365
++    # def to_liter(self, ):
++
+ 
+ 
+ class Gallon:
+     const = 4.546
+ 
+     def __init__(self, amount):
+-        self.amount = amount * self.const
++        self.amount = amount
+ 
+ 
+ class Bushel:
+     const = 36.368
+ 
+     def __init__(self, amount):
+-        self.amount = amount * self.const
++        self.amount = amount
+ 
+ 
+-q1 = Quart(11)
+-# g1 = Gallon(23)
+-q2 = Quart(16)
+-# c1 = Bushel(2)
+-# c2 = Bushel(3)
+-
++q1 = Quart(12)
++g1 = Gallon(23)
+ manager = Manager()
+-print(manager.plus(q2, q1))
+-# print(manager.plus(c2, c1))
+-# print(manager.to_glass(q1))
+-# print(manager.to_liter(q1))
+-print(manager.division_by_number(q1, 4))
++
++print(manager.to_glass(q1))
++print(manager.to_liter(q1))
++
++print(manager.checker(q1))
++print(manager.checker(g1))
++print(manager.to_liter(g1))
++print(manager.to_pint(g1))
+Index: project/Models/Quart.py
+===================================================================
+diff --git a/project/Models/Quart.py b/project/Models/Quart.py
+deleted file mode 100644
+--- a/project/Models/Quart.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,3 +0,0 @@
+-class Quart:
+-    def __init__(self, amount):
+-        self.amount = amount
+Index: project/Models/Bushel.py
+===================================================================
+diff --git a/project/Models/Bushel.py b/project/Models/Bushel.py
+deleted file mode 100644
+--- a/project/Models/Bushel.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,5 +0,0 @@
+-class Bushel:
+-    quart_const = 32
+-
+-    def __init__(self, amount):
+-        self.amount = amount * self.quart_const
+Index: README.md
+===================================================================
+diff --git a/README.md b/README.md
+deleted file mode 100644
+--- a/README.md	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,6 +0,0 @@
+-![image](https://github.com/MOksentuk/Course_Work/assets/112973356/e8167cab-5df7-49e8-96d2-df4452393916)
+-![image](https://github.com/MOksentuk/Course_Work/assets/112973356/3d2c6eeb-3786-4c4c-96ae-8b846e79dd50)
+-![image](https://github.com/MOksentuk/Course_Work/assets/112973356/d9210932-07e1-4124-908c-0466310addcb)
+-![image](https://github.com/MOksentuk/Course_Work/assets/112973356/b212ac22-d02f-4cad-915a-d5284add9a91)
+-![image](https://github.com/MOksentuk/Course_Work/assets/112973356/9afa685c-4320-4bb1-a077-071b00b2ce51)
+-![image](https://github.com/MOksentuk/Course_Work/assets/112973356/ee4cc1dc-ac65-4e94-8fae-2876e25e0d4c)
+Index: project/Models/Gallon.py
+===================================================================
+diff --git a/project/Models/Gallon.py b/project/Models/Gallon.py
+deleted file mode 100644
+--- a/project/Models/Gallon.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,5 +0,0 @@
+-class Gallon:
+-    quart_const = 4
+-
+-    def __init__(self, amount):
+-        self.amount = amount * self.quart_const
+Index: project/Models/Storage.py
+===================================================================
+diff --git a/project/Models/Storage.py b/project/Models/Storage.py
+deleted file mode 100644
+--- a/project/Models/Storage.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,5 +0,0 @@
+-class Storage:
+-    def __init__(self, bushel = 0, quart = 0, gallon = 0):
+-        self.bushel = bushel
+-        self.quart = quart
+-        self.gallon = gallon
+\ No newline at end of file
+Index: project/main.py
+===================================================================
+diff --git a/project/main.py b/project/main.py
+deleted file mode 100644
+--- a/project/main.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,22 +0,0 @@
+-from Models.Quart import Quart
+-from Models.Gallon import Gallon
+-from Models.Bushel import Bushel
+-from Models.Storage import Storage
+-from Manager import Manager
+-
+-
+-def main():
+-    q1 = Quart(11)
+-    g1 = Gallon(2)
+-    q2 = Quart(16)
+-    b1 = Bushel(20)
+-    b2 = Bushel(3)
+-    b3 = Bushel(1)
+-    # 1 2 3 (+-/*) 1 2 3
+-    manager = Manager()
+-    storage = Storage(b1, 0, q1)
+-    manager.plus(q1, b1)
+-
+-
+-if __name__ == "__main__":
+-    main()
+Index: project/Manager.py
+===================================================================
+diff --git a/project/Manager.py b/project/Manager.py
+deleted file mode 100644
+--- a/project/Manager.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ /dev/null	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
+@@ -1,129 +0,0 @@
+-class Manager:
+-    __liter_const = 1.1365
+-    __glass_const = 0.273
+-    __pint_const = 0.56826
+-
+-    @staticmethod
+-    def checker(*objects):
+-        """Проверка превышения максимально допустимого значения"""
+-        check_const = 2560
+-
+-        for obj in objects:
+-            if obj.amount > check_const:
+-                raise ValueError("Передано недопустимое значение")
+-
+-    @staticmethod
+-    def summator(*objects):
+-        ans = 0
+-        for obj in objects:
+-            ans += obj.amount
+-
+-        return ans
+-
+-    @staticmethod
+-    def decorator(value, name_1, name_2, name_3):
+-        """Расстановка окончаний в выводе в зависимости от значения"""
+-        ans = ''
+-        if 1 < abs(value % 10) < 5 or int(value) != value:
+-            ans += f'{value} {name_1}'
+-        elif abs(value) == 1:
+-            ans += f'{value} {name_2}'
+-        elif 4 < abs(value % 10) < 10 or value != 0:
+-            ans += f'{value} {name_3}'
+-        return ans
+-
+-    def returner(self, value):
+-        """Перевод из литров в начальные меры объёма"""
+-        if value == 0:
+-            return 'Полученное значение 0'
+-        bushel_const = 32
+-        gallon_const = 4
+-        bushel = value // bushel_const
+-        gallon = (value % bushel_const) // gallon_const
+-        quart = value % bushel_const % gallon_const
+-        ans = ''
+-        ans += self.decorator(bushel, 'бушеля', 'бушель', 'бушелей')
+-
+-        if bushel != 0 and gallon != 0:
+-            ans += ', '
+-        ans += self.decorator(gallon, 'галлона', 'галлон', 'галлонов')
+-
+-        if quart != 0 and gallon != 0:
+-            ans += ', '
+-        ans += self.decorator(quart, 'кварты', 'кварта', 'кварт')
+-
+-        return ans
+-
+-    def plus(self, lhs, rhs):
+-        """Сложение двух значений"""
+-        self.checker(lhs.amount, rhs.amount)
+-
+-        result = lhs.amount + rhs.amount
+-        if self.checker(result):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return 'В полученном значении ' + self.returner(result)
+-
+-    def minus(self, lhs, rhs):
+-        """Вычитание двух значений"""
+-        self.checker(lhs, rhs)
+-
+-        result = lhs.amount - rhs.amount
+-        return 'В полученном значении ' + self.returner(result)
+-
+-    def comparison(self, lhs, rhs):
+-        """Сравнение двух значений"""
+-        if self.checker(lhs.amount) or self.checker(rhs.amount):
+-            raise ValueError("Переданное значение превышает максимально допустимое значение")
+-        result = abs(lhs.amount - rhs.amount)
+-        if lhs.amount > rhs.amount:
+-            return 'Первое значение больше второго на ' + self.returner(result)
+-        elif lhs.amount < rhs.amount:
+-            return 'Первое значение меньше второго на ' + self.returner(result)
+-        else:
+-            return 'Значения равны'
+-
+-    def division_by_number(self, obj, const):
+-        """Деление на число"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Переданное значение превышает максимально допустимое значение")
+-        result = obj.amount / const
+-        return 'В полученном значении ' + self.returner(result)
+-
+-    def multiplication_by_number(self, lhs, const):
+-        """Умножение на число"""
+-        result = lhs.amount * const
+-        if self.checker(result):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        return 'В полученном значении ' + self.returner(result)
+-
+-    def addition_to_max_value(self, obj):
+-        """Дополнение до максимального значения"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        max_value = 256
+-        result = obj.amount - max_value
+-        return 'В полученном значении ' + self.returner(result)
+-
+-    def to_liter(self, obj):
+-        """Возвращение значения в литрах"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        result = obj.amount * self.__liter_const
+-        ans = 'В полученном значении '
+-        return ans + self.decorator(result, 'литра', 'литр', 'литров')
+-
+-    def to_glass(self, obj):
+-        """Перевод значения в стаканы"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        result = obj.amount * self.__liter_const / self.__glass_const
+-        ans = 'В полученном значении '
+-        return ans + self.decorator(result, 'стакана', 'стакан', 'стаканов')
+-
+-    def to_pint(self, obj):
+-        """Перевод значения в пинты"""
+-        if self.checker(obj.amount):
+-            raise ValueError("Полученное значение превышает максимально допустимое значение")
+-        result = obj.amount * self.__liter_const / self.__pint_const
+-        ans = 'В полученном значении '
+-        return ans + self.decorator(result, 'пинты', 'пинта', 'пинт')
+Index: Димин код.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from tkinter import *\r\nfrom tkinter import font\r\nfrom tkinter import messagebox\r\n\r\nwindow = Tk()\r\nwindow['bg'] = '#f2b05f'\r\nwindow.title('Калькулятор')\r\nwindow.geometry('400x400')\r\nwindow.resizable(width=False, height=False)\r\n\r\nramka = Frame(window)\r\nramka['bg'] = '#ed9121'\r\nramka.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.9)\r\n\r\ntitle_shrift = font.Font(family='Arial', size=20)\r\nlittle_shrift = font.Font(family='Arial', size=10)\r\nshrift = font.Font(family='Arial', size=12)\r\n\r\ndef main_page():\r\n    task_selection = Label(ramka, text='ДОСТУПНЫЕ ОПЕРАЦИИ', bg='#ed9121', font=title_shrift)\r\n    task_selection.pack()\r\n\r\n    def udalenie():\r\n        delete = [task_selection.destroy(),\r\n                  v_kg.destroy(),\r\n                  v_catti.destroy(),\r\n                  v_funti.destroy(),\r\n                  slojenie.destroy(),\r\n                  vichitanie.destroy(),\r\n                  umnojenie.destroy(),\r\n                  delenie.destroy(),\r\n                  sravnenie.destroy(),\r\n                  dopolnenie.destroy()]\r\n\r\n    def V_KG():\r\n        udalenie()\r\n        text_V_KG = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')\r\n        text_V_KG.pack()\r\n        vz_V_KG = Entry(ramka, font=shrift)\r\n        vz_V_KG.pack()\r\n\r\n        def REZULTAT_V_KG():\r\n            a = vz_V_KG.get()\r\n            if a.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                if int(a) > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_V_KG['text'] = round(int(a) * 0.205, 3), 'кг'\r\n\r\n        rezbtn_V_KG = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_KG)\r\n        rezbtn_V_KG.pack(pady=10)\r\n        rezultat_V_KG = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_V_KG.pack()\r\n\r\n        def Back_V_KG():\r\n            vz_V_KG.destroy()\r\n            text_V_KG.destroy()\r\n            backbtn_V_KG.destroy()\r\n            rezbtn_V_KG.destroy()\r\n            rezultat_V_KG.destroy()\r\n            main_page()\r\n\r\n        backbtn_V_KG = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_V_KG)\r\n        backbtn_V_KG.pack(side=BOTTOM)\r\n\r\n    def V_CATTI():\r\n        udalenie()\r\n        text_V_CATTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')\r\n        text_V_CATTI.pack()\r\n        vz_V_CATTI = Entry(ramka, font=shrift)\r\n        vz_V_CATTI.pack()\r\n\r\n        def REZULTAT_V_CATTI():\r\n            a = vz_V_CATTI.get()\r\n            if a.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                if int(a) > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_V_CATTI['text'] = round(int(a) * 0.205 * 0.605, 3), 'кэтти'\r\n\r\n        rezbtn_V_CATTI = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_CATTI)\r\n        rezbtn_V_CATTI.pack(pady=10)\r\n        rezultat_V_CATTI = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_V_CATTI.pack()\r\n\r\n        def Back_V_CATTI():\r\n            vz_V_CATTI.destroy()\r\n            text_V_CATTI.destroy()\r\n            backbtn_V_CATTI.destroy()\r\n            rezbtn_V_CATTI.destroy()\r\n            rezultat_V_CATTI.destroy()\r\n            main_page()\r\n\r\n        backbtn_V_CATTI = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_V_CATTI)\r\n        backbtn_V_CATTI.pack(side=BOTTOM)\r\n\r\n    def V_FUNTI():\r\n        udalenie()\r\n        text_V_FUNTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')\r\n        text_V_FUNTI.pack()\r\n        vz_V_FUNTI = Entry(ramka, font=shrift)\r\n        vz_V_FUNTI.pack()\r\n\r\n        def REZULTAT_V_FUNTI():\r\n            a = vz_V_FUNTI.get()\r\n            if a.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                if int(a) > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_V_FUNTI['text'] = round(int(a) * 0.205 * 0.454, 3), 'фунтов'\r\n\r\n        rezbtn_V_FUNTI = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_FUNTI)\r\n        rezbtn_V_FUNTI.pack(pady=10)\r\n        rezultat_V_FUNTI = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_V_FUNTI.pack()\r\n\r\n        def Back_V_FUNTI():\r\n            vz_V_FUNTI.destroy()\r\n            text_V_FUNTI.destroy()\r\n            backbtn_V_FUNTI.destroy()\r\n            rezbtn_V_FUNTI.destroy()\r\n            rezultat_V_FUNTI.destroy()\r\n            main_page()\r\n\r\n        backbtn_V_FUNTI = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_V_FUNTI)\r\n        backbtn_V_FUNTI.pack(side=BOTTOM)\r\n\r\n    def obratniy_perevod(a):\r\n        b = a // 5\r\n        c = b // 16\r\n        d = c // 10\r\n        e = a % 5\r\n        f = b % 16\r\n        g = c % 10\r\n        if d % 10 == 1:\r\n            h = 'берковец'\r\n        elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:\r\n            h = 'берковца'\r\n        else:\r\n            h = 'берковцев'\r\n        if g % 10 == 1:\r\n            i = 'пуд'\r\n        elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:\r\n            i = 'пуда'\r\n        else:\r\n            i = 'пудов'\r\n        if f >= 10:\r\n            j = 'безменов'\r\n        elif f % 10 == 1:\r\n            j = 'безмен'\r\n        elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:\r\n            j = 'безмена'\r\n        else:\r\n            j = 'безменов'\r\n        if e % 10 == 1:\r\n            k = 'гривенка'\r\n        elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:\r\n            k = 'гривенки'\r\n        else:\r\n            k = 'гривенок'\r\n        return d, h, g, i, f, j, e, k\r\n\r\n    def SLOJENIE():\r\n        udalenie()\r\n        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_1_slag.place(relwidth=0.5)\r\n        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_2_slag.place(relwidth=0.5, relx=0.5)\r\n\r\n        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')\r\n        text_berk.place(relwidth=1, rely=0.1)\r\n        entry_1_berk = Entry(ramka, font=little_shrift)\r\n        entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)\r\n        entry_2_berk = Entry(ramka, font=little_shrift)\r\n        entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)\r\n\r\n        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')\r\n        text_pud.place(relwidth=1, rely=0.2)\r\n        entry_1_pud = Entry(ramka, font=little_shrift)\r\n        entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)\r\n        entry_2_pud = Entry(ramka, font=little_shrift)\r\n        entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)\r\n\r\n        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')\r\n        text_bezm.place(relwidth=1, rely=0.3)\r\n        entry_1_bezm = Entry(ramka, font=little_shrift)\r\n        entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)\r\n        entry_2_bezm = Entry(ramka, font=little_shrift)\r\n        entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)\r\n\r\n        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')\r\n        text_griv.place(relwidth=1, rely=0.4)\r\n        entry_1_griv = Entry(ramka, font=little_shrift)\r\n        entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)\r\n        entry_2_griv = Entry(ramka, font=little_shrift)\r\n        entry_2_griv.place(relwidth=0.25, rely=0.45, relx=0.625)\r\n\r\n        def REZULTAT_SLOJENIE():\r\n            _1_berk = entry_1_berk.get()\r\n            _1_pud = entry_1_pud.get()\r\n            _1_bezm = entry_1_bezm.get()\r\n            _1_griv = entry_1_griv.get()\r\n            _2_berk = entry_2_berk.get()\r\n            _2_pud = entry_2_pud.get()\r\n            _2_bezm = entry_2_bezm.get()\r\n            _2_griv = entry_2_griv.get()\r\n            if _1_berk.isdigit() == False\\\r\n               or _1_pud.isdigit() == False\\\r\n               or _1_bezm.isdigit() == False\\\r\n               or _1_griv.isdigit() == False \\\r\n               or _2_berk.isdigit() == False \\\r\n               or _2_pud.isdigit() == False \\\r\n               or _2_bezm.isdigit() == False \\\r\n               or _2_griv.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                a = (int(_1_berk) * 800\r\n                     + int(_1_pud) * 80\r\n                     + int(_1_bezm) * 5\r\n                     + int(_1_griv)\r\n                     + int(_2_berk) * 800\r\n                     + int(_2_pud) * 80\r\n                     + int(_2_bezm) * 5\r\n                     + int(_2_griv))\r\n                if a > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_SLOJENIE['text'] = obratniy_perevod(a)\r\n\r\n\r\n        rezultat_SLOJENIE = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_SLOJENIE.place(relwidth=1, rely=0.7)\r\n\r\n        rezbtn_SLOJENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_SLOJENIE)\r\n        rezbtn_SLOJENIE.place(rely=0.55, relx=0.305)\r\n\r\n        def Back_SLOJENIE():\r\n            text_1_slag.destroy(),\r\n            text_2_slag.destroy(),\r\n            text_berk.destroy(),\r\n            text_pud.destroy(),\r\n            text_bezm.destroy(),\r\n            text_griv.destroy(),\r\n            entry_1_berk.destroy(),\r\n            entry_2_berk.destroy(),\r\n            entry_1_pud.destroy(),\r\n            entry_2_pud.destroy(),\r\n            entry_1_bezm.destroy(),\r\n            entry_2_bezm.destroy(),\r\n            entry_1_griv.destroy(),\r\n            entry_2_griv.destroy()\r\n            backbtn_SLOJENIE.destroy()\r\n            rezbtn_SLOJENIE.destroy()\r\n            rezultat_SLOJENIE.destroy()\r\n            main_page()\r\n\r\n        backbtn_SLOJENIE = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_SLOJENIE)\r\n        backbtn_SLOJENIE.pack(side=BOTTOM)\r\n\r\n    def VICHITANIE():\r\n        udalenie()\r\n        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_1_slag.place(relwidth=0.5)\r\n        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_2_slag.place(relwidth=0.5, relx=0.5)\r\n\r\n        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')\r\n        text_berk.place(relwidth=1, rely=0.1)\r\n        entry_1_berk = Entry(ramka, font=little_shrift)\r\n        entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)\r\n        entry_2_berk = Entry(ramka, font=little_shrift)\r\n        entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)\r\n\r\n        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')\r\n        text_pud.place(relwidth=1, rely=0.2)\r\n        entry_1_pud = Entry(ramka, font=little_shrift)\r\n        entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)\r\n        entry_2_pud = Entry(ramka, font=little_shrift)\r\n        entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)\r\n\r\n        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')\r\n        text_bezm.place(relwidth=1, rely=0.3)\r\n        entry_1_bezm = Entry(ramka, font=little_shrift)\r\n        entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)\r\n        entry_2_bezm = Entry(ramka, font=little_shrift)\r\n        entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)\r\n\r\n        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')\r\n        text_griv.place(relwidth=1, rely=0.4)\r\n        entry_1_griv = Entry(ramka, font=little_shrift)\r\n        entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)\r\n        entry_2_griv = Entry(ramka, font=little_shrift)\r\n        entry_2_griv.place(relwidth=0.25, rely=0.45, relx=0.625)\r\n\r\n        def REZULTAT_VICHITANIE():\r\n            _1_berk = entry_1_berk.get()\r\n            _1_pud = entry_1_pud.get()\r\n            _1_bezm = entry_1_bezm.get()\r\n            _1_griv = entry_1_griv.get()\r\n            _2_berk = entry_2_berk.get()\r\n            _2_pud = entry_2_pud.get()\r\n            _2_bezm = entry_2_bezm.get()\r\n            _2_griv = entry_2_griv.get()\r\n            if _1_berk.isdigit() == False \\\r\n                    or _1_pud.isdigit() == False \\\r\n                    or _1_bezm.isdigit() == False \\\r\n                    or _1_griv.isdigit() == False \\\r\n                    or _2_berk.isdigit() == False \\\r\n                    or _2_pud.isdigit() == False \\\r\n                    or _2_bezm.isdigit() == False \\\r\n                    or _2_griv.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                a = (int(_1_berk) * 800\r\n                     + int(_1_pud) * 80\r\n                     + int(_1_bezm) * 5\r\n                     + int(_1_griv)\r\n                     - (int(_2_berk) * 800\r\n                     + int(_2_pud) * 80\r\n                     + int(_2_bezm) * 5\r\n                     + int(_2_griv)))\r\n                if a > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_VICHITANIE['text'] = obratniy_perevod(a)\r\n\r\n\r\n        rezultat_VICHITANIE = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_VICHITANIE.place(relwidth=1, rely=0.7)\r\n\r\n        rezbtn_VICHITANIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_VICHITANIE)\r\n        rezbtn_VICHITANIE.place(rely=0.55, relx=0.305)\r\n\r\n        def Back_VICHITANIE():\r\n            text_1_slag.destroy(),\r\n            text_2_slag.destroy(),\r\n            text_berk.destroy(),\r\n            text_pud.destroy(),\r\n            text_bezm.destroy(),\r\n            text_griv.destroy(),\r\n            entry_1_berk.destroy(),\r\n            entry_2_berk.destroy(),\r\n            entry_1_pud.destroy(),\r\n            entry_2_pud.destroy(),\r\n            entry_1_bezm.destroy(),\r\n            entry_2_bezm.destroy(),\r\n            entry_1_griv.destroy(),\r\n            entry_2_griv.destroy()\r\n            backbtn_VICHITANIE.destroy()\r\n            rezbtn_VICHITANIE.destroy()\r\n            rezultat_VICHITANIE.destroy()\r\n            main_page()\r\n\r\n        backbtn_VICHITANIE = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_VICHITANIE)\r\n        backbtn_VICHITANIE.pack(side=BOTTOM)\r\n\r\n    def UMNOJENIE():\r\n        udalenie()\r\n        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_znach.place(relwidth=0.5)\r\n        text_mnojitel = Label(ramka, text='МНОЖИТЕЛЬ', font=shrift, bg='#ed9121')\r\n        text_mnojitel.place(relwidth=0.5, relx=0.5)\r\n\r\n        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')\r\n        text_berk.place(relx=0.06, rely=0.1)\r\n        entry_1_berk = Entry(ramka, font=little_shrift)\r\n        entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)\r\n\r\n        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')\r\n        text_pud.place(relx=0.09, rely=0.25)\r\n        entry_1_pud = Entry(ramka, font=little_shrift)\r\n        entry_1_pud.place(relwidth=0.25, rely=0.3, relx=0.125)\r\n\r\n        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')\r\n        text_bezm.place(relx=0.07, rely=0.4)\r\n        entry_1_bezm = Entry(ramka, font=little_shrift)\r\n        entry_1_bezm.place(relwidth=0.25, rely=0.45, relx=0.125)\r\n\r\n        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')\r\n        text_griv.place(relx=0.07, rely=0.55)\r\n        entry_1_griv = Entry(ramka, font=little_shrift)\r\n        entry_1_griv.place(relwidth=0.25, rely=0.6, relx=0.125)\r\n\r\n        entry_mnojitel = Entry(ramka, font=little_shrift)\r\n        entry_mnojitel.place(relwidth=0.25, rely=0.1, relx=0.625)\r\n\r\n        def REZULTAT_UMNOJENIE():\r\n            _1_berk = entry_1_berk.get()\r\n            _1_pud = entry_1_pud.get()\r\n            _1_bezm = entry_1_bezm.get()\r\n            _1_griv = entry_1_griv.get()\r\n            _mnojitel = entry_mnojitel.get()\r\n            if _1_berk.isdigit() == False \\\r\n                    or _1_pud.isdigit() == False \\\r\n                    or _1_bezm.isdigit() == False \\\r\n                    or _1_griv.isdigit() == False \\\r\n                    or _mnojitel.replace(\".\", \"\", 1).isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                a = round((int(_1_berk) * 800\r\n                 + int(_1_pud) * 80\r\n                 + int(_1_bezm) * 5\r\n                 + int(_1_griv)) * float(_mnojitel))\r\n                if a > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_UMNOJENIE['text'] = obratniy_perevod(a)\r\n\r\n\r\n\r\n        rezultat_UMNOJENIE = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_UMNOJENIE.place(relwidth=1, rely=0.75)\r\n\r\n        rezbtn_UMNOJENIE = Button(ramka, text='Узнать\\nрезультат', font=shrift, bg='grey', command=REZULTAT_UMNOJENIE)\r\n        rezbtn_UMNOJENIE.place(rely=0.35, relx=0.63)\r\n\r\n        def Back_UMNOJENIE():\r\n            text_znach.destroy()\r\n            text_mnojitel.destroy()\r\n            text_berk.destroy()\r\n            text_pud.destroy()\r\n            text_bezm.destroy()\r\n            text_griv.destroy()\r\n            entry_mnojitel.destroy()\r\n            entry_1_berk.destroy()\r\n            entry_1_pud.destroy()\r\n            entry_1_bezm.destroy()\r\n            entry_1_griv.destroy()\r\n            backbtn_UMNOJENIE.destroy()\r\n            rezbtn_UMNOJENIE.destroy()\r\n            rezultat_UMNOJENIE.destroy()\r\n            main_page()\r\n\r\n        backbtn_UMNOJENIE = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_UMNOJENIE)\r\n        backbtn_UMNOJENIE.pack(side=BOTTOM)\r\n\r\n    def DELENIE():\r\n        udalenie()\r\n        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_znach.place(relwidth=0.5)\r\n        text_delitel = Label(ramka, text='ДЕЛИТЕЛЬ', font=shrift, bg='#ed9121')\r\n        text_delitel.place(relwidth=0.5, relx=0.5)\r\n\r\n        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')\r\n        text_berk.place(relx=0.06, rely=0.1)\r\n        entry_1_berk = Entry(ramka, font=little_shrift)\r\n        entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)\r\n\r\n        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')\r\n        text_pud.place(relx=0.09, rely=0.25)\r\n        entry_1_pud = Entry(ramka, font=little_shrift)\r\n        entry_1_pud.place(relwidth=0.25, rely=0.3, relx=0.125)\r\n\r\n        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')\r\n        text_bezm.place(relx=0.07, rely=0.4)\r\n        entry_1_bezm = Entry(ramka, font=little_shrift)\r\n        entry_1_bezm.place(relwidth=0.25, rely=0.45, relx=0.125)\r\n\r\n        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')\r\n        text_griv.place(relx=0.07, rely=0.55)\r\n        entry_1_griv = Entry(ramka, font=little_shrift)\r\n        entry_1_griv.place(relwidth=0.25, rely=0.6, relx=0.125)\r\n\r\n        entry_delitel = Entry(ramka, font=little_shrift)\r\n        entry_delitel.place(relwidth=0.25, rely=0.1, relx=0.625)\r\n\r\n        def REZULTAT_DELENIE():\r\n            _1_berk = entry_1_berk.get()\r\n            _1_pud = entry_1_pud.get()\r\n            _1_bezm = entry_1_bezm.get()\r\n            _1_griv = entry_1_griv.get()\r\n            _delitel = entry_delitel.get()\r\n            if _1_berk.isdigit() == False \\\r\n                    or _1_pud.isdigit() == False \\\r\n                    or _1_bezm.isdigit() == False \\\r\n                    or _1_griv.isdigit() == False \\\r\n                    or _delitel.replace(\".\", \"\", 1).isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                a = round((int(_1_berk) * 800\r\n                           + int(_1_pud) * 80\r\n                           + int(_1_bezm) * 5\r\n                           + int(_1_griv)) / float(_delitel))\r\n                if a > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_DELENIE['text'] = obratniy_perevod(a)\r\n\r\n\r\n        rezultat_DELENIE = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_DELENIE.place(relwidth=1, rely=0.75)\r\n\r\n        rezbtn_DELENIE = Button(ramka, text='Узнать\\nрезультат', font=shrift, bg='grey', command=REZULTAT_DELENIE)\r\n        rezbtn_DELENIE.place(rely=0.35, relx=0.63)\r\n\r\n        def Back_DELENIE():\r\n            text_znach.destroy()\r\n            text_delitel.destroy()\r\n            text_berk.destroy()\r\n            text_pud.destroy()\r\n            text_bezm.destroy()\r\n            text_griv.destroy()\r\n            entry_delitel.destroy()\r\n            entry_1_berk.destroy()\r\n            entry_1_pud.destroy()\r\n            entry_1_bezm.destroy()\r\n            entry_1_griv.destroy()\r\n            backbtn_DELENIE.destroy()\r\n            rezbtn_DELENIE.destroy()\r\n            rezultat_DELENIE.destroy()\r\n            main_page()\r\n\r\n        backbtn_DELENIE = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_DELENIE)\r\n        backbtn_DELENIE.pack(side=BOTTOM)\r\n\r\n    def SRAVNENIE():\r\n        udalenie()\r\n        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_1_slag.place(relwidth=0.5)\r\n        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')\r\n        text_2_slag.place(relwidth=0.5, relx=0.5)\r\n\r\n        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')\r\n        text_berk.place(relwidth=1, rely=0.1)\r\n        entry_1_berk = Entry(ramka, font=little_shrift)\r\n        entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)\r\n        entry_2_berk = Entry(ramka, font=little_shrift)\r\n        entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)\r\n\r\n        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')\r\n        text_pud.place(relwidth=1, rely=0.2)\r\n        entry_1_pud = Entry(ramka, font=little_shrift)\r\n        entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)\r\n        entry_2_pud = Entry(ramka, font=little_shrift)\r\n        entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)\r\n\r\n        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')\r\n        text_bezm.place(relwidth=1, rely=0.3)\r\n        entry_1_bezm = Entry(ramka, font=little_shrift)\r\n        entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)\r\n        entry_2_bezm = Entry(ramka, font=little_shrift)\r\n        entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)\r\n\r\n        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')\r\n        text_griv.place(relwidth=1, rely=0.4)\r\n        entry_1_griv = Entry(ramka, font=little_shrift)\r\n        entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)\r\n        entry_2_griv = Entry(ramka, font=little_shrift)\r\n        entry_2_griv.place(relwidth=0.25, rely=0.45, relx=0.625)\r\n\r\n        def REZULTAT_SRAVNENIE():\r\n            _1_berk = entry_1_berk.get()\r\n            _1_pud = entry_1_pud.get()\r\n            _1_bezm = entry_1_bezm.get()\r\n            _1_griv = entry_1_griv.get()\r\n            _2_berk = entry_2_berk.get()\r\n            _2_pud = entry_2_pud.get()\r\n            _2_bezm = entry_2_bezm.get()\r\n            _2_griv = entry_2_griv.get()\r\n            if _1_berk.isdigit() == False \\\r\n                    or _1_pud.isdigit() == False \\\r\n                    or _1_bezm.isdigit() == False \\\r\n                    or _1_griv.isdigit() == False \\\r\n                    or _2_berk.isdigit() == False \\\r\n                    or _2_pud.isdigit() == False \\\r\n                    or _2_bezm.isdigit() == False \\\r\n                    or _2_griv.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                a = (int(entry_1_berk.get()) * 800\r\n                     + int(entry_1_pud.get()) * 80\r\n                     + int(entry_1_bezm.get()) * 5\r\n                     + int(entry_1_griv.get()))\r\n                A = (int(entry_2_berk.get()) * 800\r\n                     + int(entry_2_pud.get()) * 80\r\n                     + int(entry_2_bezm.get()) * 5\r\n                     + int(entry_2_griv.get()))\r\n                if a > 8000 or A > 8000:\r\n                    messagebox.showerror('Ошибка!', 'Введенное число не должно превышать 10 берковец')\r\n                else:\r\n                    rezultat_SRAVNENIE['text'] = bolshe_menshe_ravno(a, A)\r\n\r\n        def bolshe_menshe_ravno(a, A):\r\n            if a > A:\r\n                return 'Первое число БОЛЬШЕ второго'\r\n            elif A > a:\r\n                return 'Первое число МЕНЬШЕ второго'\r\n            else:\r\n                return 'Числа РАВНЫ между собой'\r\n\r\n        rezultat_SRAVNENIE = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_SRAVNENIE.place(relwidth=1, rely=0.7)\r\n\r\n        rezbtn_SRAVNENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_SRAVNENIE)\r\n        rezbtn_SRAVNENIE.place(rely=0.55, relx=0.305)\r\n\r\n        def Back_SRAVNENIE():\r\n            text_1_slag.destroy(),\r\n            text_2_slag.destroy(),\r\n            text_berk.destroy(),\r\n            text_pud.destroy(),\r\n            text_bezm.destroy(),\r\n            text_griv.destroy(),\r\n            entry_1_berk.destroy(),\r\n            entry_2_berk.destroy(),\r\n            entry_1_pud.destroy(),\r\n            entry_2_pud.destroy(),\r\n            entry_1_bezm.destroy(),\r\n            entry_2_bezm.destroy(),\r\n            entry_1_griv.destroy(),\r\n            entry_2_griv.destroy()\r\n            backbtn_SRAVNENIE.destroy()\r\n            rezbtn_SRAVNENIE.destroy()\r\n            rezultat_SRAVNENIE.destroy()\r\n            main_page()\r\n\r\n        backbtn_SRAVNENIE = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_SRAVNENIE)\r\n        backbtn_SRAVNENIE.pack(side=BOTTOM)\r\n\r\n    def DOPOLNENIE():\r\n        udalenie()\r\n        text_znach = Label(ramka, text='Введите значение веса', font=shrift, bg='#ed9121')\r\n        text_znach.pack()\r\n\r\n        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')\r\n        text_pud.pack()\r\n        entry_1_pud = Entry(ramka, font=little_shrift)\r\n        entry_1_pud.pack()\r\n\r\n        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')\r\n        text_bezm.pack()\r\n        entry_1_bezm = Entry(ramka, font=little_shrift)\r\n        entry_1_bezm.pack()\r\n\r\n        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')\r\n        text_griv.pack()\r\n        entry_1_griv = Entry(ramka, font=little_shrift)\r\n        entry_1_griv.pack()\r\n\r\n        def REZULTAT_DOPOLNENIE():\r\n            _1_pud = entry_1_pud.get()\r\n            _1_bezm = entry_1_bezm.get()\r\n            _1_griv = entry_1_griv.get()\r\n            if _1_pud.isdigit() == False \\\r\n               or _1_bezm.isdigit() == False \\\r\n               or _1_griv.isdigit() == False:\r\n                messagebox.showerror('Ошибка!', 'Введенное не является числом!')\r\n            else:\r\n                a = 800 - (int(entry_1_pud.get()) * 80\r\n                    + int(entry_1_bezm.get()) * 5\r\n                    + int(entry_1_griv.get()))\r\n                if a < 0:\r\n                    messagebox.showerror('Ошибка!', 'Введенное значение больше одного берковца')\r\n                else:\r\n                    rezultat_DOPOLNENIE['text'] = obratniy_perevod(a)\r\n\r\n\r\n\r\n        rezultat_DOPOLNENIE = Label(ramka, font=shrift, bg='#ed9121')\r\n        rezultat_DOPOLNENIE.place(relwidth=1, rely=0.75)\r\n\r\n        rezbtn_DOPOLNENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_DOPOLNENIE)\r\n        rezbtn_DOPOLNENIE.pack()\r\n\r\n        def Back_DOPOLNENIE():\r\n            text_znach.destroy()\r\n            text_pud.destroy()\r\n            text_bezm.destroy()\r\n            text_griv.destroy()\r\n            entry_1_pud.destroy()\r\n            entry_1_bezm.destroy()\r\n            entry_1_griv.destroy()\r\n            backbtn_DOPOLNENIE.destroy()\r\n            rezbtn_DOPOLNENIE.destroy()\r\n            rezultat_DOPOLNENIE.destroy()\r\n            main_page()\r\n\r\n        backbtn_DOPOLNENIE = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_DOPOLNENIE)\r\n        backbtn_DOPOLNENIE.pack(side=BOTTOM)\r\n\r\n    v_kg = Button(ramka, text='Перевод в килограммы', bg='grey', font=shrift, width=30, command=V_KG)\r\n    v_kg.pack()\r\n    v_catti = Button(ramka, text='Перевод в кэтти', bg='grey', font=shrift, width=30, command=V_CATTI)\r\n    v_catti.pack()\r\n    v_funti = Button(ramka, text='Перевод в фунты', bg='grey', font=shrift, width=30, command=V_FUNTI)\r\n    v_funti.pack()\r\n    slojenie = Button(ramka, text='Сложение', bg='grey', font=shrift, width=30, command=SLOJENIE)\r\n    slojenie.pack()\r\n    vichitanie = Button(ramka, text='Вычитание', bg='grey', font=shrift, width=30, command=VICHITANIE)\r\n    vichitanie.pack()\r\n    umnojenie = Button(ramka, text='Умножение на число', bg='grey', font=shrift, width=30, command=UMNOJENIE)\r\n    umnojenie.pack()\r\n    delenie = Button(ramka, text='Деление на число', bg='grey', font=shrift, width=30, command=DELENIE)\r\n    delenie.pack()\r\n    sravnenie = Button(ramka, text='Сравнение', bg='grey', font=shrift, width=30, command=SRAVNENIE)\r\n    sravnenie.pack()\r\n    dopolnenie = Button(ramka, text='Дополнение до берковца', bg='grey', font=shrift, width=30, command=DOPOLNENIE)\r\n    dopolnenie.pack()\r\n\r\nmain_page()\r\nwindow.mainloop()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Димин код.py b/Димин код.py
+--- a/Димин код.py	(revision 4f2f5e1f4e7a1c098e2db3a8d7e61ba9142b0b70)
++++ b/Димин код.py	(date 1699450597152)
+@@ -2,14 +2,14 @@
+ from tkinter import font
+ from tkinter import messagebox
+ 
+-window = Tk()
+-window['bg'] = '#f2b05f'
+-window.title('Калькулятор')
+-window.geometry('400x400')
+-window.resizable(width=False, height=False)
++okno = Tk()
++okno['bg'] = '#8f8fbc'
++okno.title('Калькулятор')
++okno.geometry('400x400')
++okno.resizable(width=False, height=False)
+ 
+-ramka = Frame(window)
+-ramka['bg'] = '#ed9121'
++ramka = Frame(okno)
++ramka['bg'] = '#c1c1ff'
+ ramka.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.9)
+ 
+ title_shrift = font.Font(family='Arial', size=20)
+@@ -17,7 +17,7 @@
+ shrift = font.Font(family='Arial', size=12)
+ 
+ def main_page():
+-    task_selection = Label(ramka, text='ДОСТУПНЫЕ ОПЕРАЦИИ', bg='#ed9121', font=title_shrift)
++    task_selection = Label(ramka, text='ДОСТУПНЫЕ ОПЕРАЦИИ', bg='#c1c1ff', font=title_shrift)
+     task_selection.pack()
+ 
+     def udalenie():
+@@ -34,7 +34,7 @@
+ 
+     def V_KG():
+         udalenie()
+-        text_V_KG = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')
++        text_V_KG = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#c1c1ff')
+         text_V_KG.pack()
+         vz_V_KG = Entry(ramka, font=shrift)
+         vz_V_KG.pack()
+@@ -51,7 +51,7 @@
+ 
+         rezbtn_V_KG = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_KG)
+         rezbtn_V_KG.pack(pady=10)
+-        rezultat_V_KG = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_V_KG = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_V_KG.pack()
+ 
+         def Back_V_KG():
+@@ -67,7 +67,7 @@
+ 
+     def V_CATTI():
+         udalenie()
+-        text_V_CATTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')
++        text_V_CATTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#c1c1ff')
+         text_V_CATTI.pack()
+         vz_V_CATTI = Entry(ramka, font=shrift)
+         vz_V_CATTI.pack()
+@@ -84,7 +84,7 @@
+ 
+         rezbtn_V_CATTI = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_CATTI)
+         rezbtn_V_CATTI.pack(pady=10)
+-        rezultat_V_CATTI = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_V_CATTI = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_V_CATTI.pack()
+ 
+         def Back_V_CATTI():
+@@ -100,7 +100,7 @@
+ 
+     def V_FUNTI():
+         udalenie()
+-        text_V_FUNTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#ed9121')
++        text_V_FUNTI = Label(ramka, text='Введите значение в гривенках', font=shrift, bg='#c1c1ff')
+         text_V_FUNTI.pack()
+         vz_V_FUNTI = Entry(ramka, font=shrift)
+         vz_V_FUNTI.pack()
+@@ -117,7 +117,7 @@
+ 
+         rezbtn_V_FUNTI = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_V_FUNTI)
+         rezbtn_V_FUNTI.pack(pady=10)
+-        rezultat_V_FUNTI = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_V_FUNTI = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_V_FUNTI.pack()
+ 
+         def Back_V_FUNTI():
+@@ -131,70 +131,35 @@
+         backbtn_V_FUNTI = Button(ramka, text='Назад', bg='grey', font=shrift, command=Back_V_FUNTI)
+         backbtn_V_FUNTI.pack(side=BOTTOM)
+ 
+-    def obratniy_perevod(a):
+-        b = a // 5
+-        c = b // 16
+-        d = c // 10
+-        e = a % 5
+-        f = b % 16
+-        g = c % 10
+-        if d % 10 == 1:
+-            h = 'берковец'
+-        elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
+-            h = 'берковца'
+-        else:
+-            h = 'берковцев'
+-        if g % 10 == 1:
+-            i = 'пуд'
+-        elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
+-            i = 'пуда'
+-        else:
+-            i = 'пудов'
+-        if f >= 10:
+-            j = 'безменов'
+-        elif f % 10 == 1:
+-            j = 'безмен'
+-        elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
+-            j = 'безмена'
+-        else:
+-            j = 'безменов'
+-        if e % 10 == 1:
+-            k = 'гривенка'
+-        elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
+-            k = 'гривенки'
+-        else:
+-            k = 'гривенок'
+-        return d, h, g, i, f, j, e, k
+-
+     def SLOJENIE():
+         udalenie()
+-        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_1_slag.place(relwidth=0.5)
+-        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_2_slag.place(relwidth=0.5, relx=0.5)
+ 
+-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
++        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+         text_berk.place(relwidth=1, rely=0.1)
+         entry_1_berk = Entry(ramka, font=little_shrift)
+         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
+         entry_2_berk = Entry(ramka, font=little_shrift)
+         entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)
+ 
+-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
++        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+         text_pud.place(relwidth=1, rely=0.2)
+         entry_1_pud = Entry(ramka, font=little_shrift)
+         entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)
+         entry_2_pud = Entry(ramka, font=little_shrift)
+         entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)
+ 
+-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
++        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+         text_bezm.place(relwidth=1, rely=0.3)
+         entry_1_bezm = Entry(ramka, font=little_shrift)
+         entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)
+         entry_2_bezm = Entry(ramka, font=little_shrift)
+         entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)
+ 
+-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
++        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+         text_griv.place(relwidth=1, rely=0.4)
+         entry_1_griv = Entry(ramka, font=little_shrift)
+         entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)
+@@ -233,8 +198,42 @@
+                 else:
+                     rezultat_SLOJENIE['text'] = obratniy_perevod(a)
+ 
++        def obratniy_perevod(a):
++            b = a // 5
++            c = b // 16
++            d = c // 10
++            e = a % 5
++            f = b % 16
++            g = c % 10
++            if d % 10 == 1:
++                h = 'берковец'
++            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
++                h = 'берковца'
++            else:
++                h = 'берковцев'
++            if g % 10 == 1:
++                i = 'пуд'
++            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
++                i = 'пуда'
++            else:
++                i = 'пудов'
++            if f >= 10:
++                j = 'безменов'
++            elif f % 10 == 1:
++                j = 'безмен'
++            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
++                j = 'безмена'
++            else:
++                j = 'безменов'
++            if e % 10 == 1:
++                k = 'гривенка'
++            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
++                k = 'гривенки'
++            else:
++                k = 'гривенок'
++            return d, h, g, i, f, j, e, k
+ 
+-        rezultat_SLOJENIE = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_SLOJENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_SLOJENIE.place(relwidth=1, rely=0.7)
+ 
+         rezbtn_SLOJENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_SLOJENIE)
+@@ -265,33 +264,33 @@
+ 
+     def VICHITANIE():
+         udalenie()
+-        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_1_slag.place(relwidth=0.5)
+-        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_2_slag.place(relwidth=0.5, relx=0.5)
+ 
+-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
++        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+         text_berk.place(relwidth=1, rely=0.1)
+         entry_1_berk = Entry(ramka, font=little_shrift)
+         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
+         entry_2_berk = Entry(ramka, font=little_shrift)
+         entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)
+ 
+-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
++        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+         text_pud.place(relwidth=1, rely=0.2)
+         entry_1_pud = Entry(ramka, font=little_shrift)
+         entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)
+         entry_2_pud = Entry(ramka, font=little_shrift)
+         entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)
+ 
+-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
++        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+         text_bezm.place(relwidth=1, rely=0.3)
+         entry_1_bezm = Entry(ramka, font=little_shrift)
+         entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)
+         entry_2_bezm = Entry(ramka, font=little_shrift)
+         entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)
+ 
+-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
++        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+         text_griv.place(relwidth=1, rely=0.4)
+         entry_1_griv = Entry(ramka, font=little_shrift)
+         entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)
+@@ -330,8 +329,42 @@
+                 else:
+                     rezultat_VICHITANIE['text'] = obratniy_perevod(a)
+ 
++        def obratniy_perevod(a):
++            b = a // 5
++            c = b // 16
++            d = c // 10
++            e = a % 5
++            f = b % 16
++            g = c % 10
++            if d % 10 == 1:
++                h = 'берковец'
++            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
++                h = 'берковца'
++            else:
++                h = 'берковцев'
++            if g % 10 == 1:
++                i = 'пуд'
++            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
++                i = 'пуда'
++            else:
++                i = 'пудов'
++            if f >= 10:
++                j = 'безменов'
++            elif f % 10 == 1:
++                j = 'безмен'
++            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
++                j = 'безмена'
++            else:
++                j = 'безменов'
++            if e % 10 == 1:
++                k = 'гривенка'
++            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
++                k = 'гривенки'
++            else:
++                k = 'гривенок'
++            return d, h, g, i, f, j, e, k
+ 
+-        rezultat_VICHITANIE = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_VICHITANIE = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_VICHITANIE.place(relwidth=1, rely=0.7)
+ 
+         rezbtn_VICHITANIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_VICHITANIE)
+@@ -362,27 +395,27 @@
+ 
+     def UMNOJENIE():
+         udalenie()
+-        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_znach.place(relwidth=0.5)
+-        text_mnojitel = Label(ramka, text='МНОЖИТЕЛЬ', font=shrift, bg='#ed9121')
++        text_mnojitel = Label(ramka, text='МНОЖИТЕЛЬ', font=shrift, bg='#c1c1ff')
+         text_mnojitel.place(relwidth=0.5, relx=0.5)
+ 
+-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
++        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+         text_berk.place(relx=0.06, rely=0.1)
+         entry_1_berk = Entry(ramka, font=little_shrift)
+         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
+ 
+-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
++        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+         text_pud.place(relx=0.09, rely=0.25)
+         entry_1_pud = Entry(ramka, font=little_shrift)
+         entry_1_pud.place(relwidth=0.25, rely=0.3, relx=0.125)
+ 
+-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
++        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+         text_bezm.place(relx=0.07, rely=0.4)
+         entry_1_bezm = Entry(ramka, font=little_shrift)
+         entry_1_bezm.place(relwidth=0.25, rely=0.45, relx=0.125)
+ 
+-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
++        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+         text_griv.place(relx=0.07, rely=0.55)
+         entry_1_griv = Entry(ramka, font=little_shrift)
+         entry_1_griv.place(relwidth=0.25, rely=0.6, relx=0.125)
+@@ -412,9 +445,42 @@
+                 else:
+                     rezultat_UMNOJENIE['text'] = obratniy_perevod(a)
+ 
++        def obratniy_perevod(a):
++            b = a // 5
++            c = b // 16
++            d = c // 10
++            e = a % 5
++            f = b % 16
++            g = c % 10
++            if d % 10 == 1:
++                h = 'берковец'
++            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
++                h = 'берковца'
++            else:
++                h = 'берковцев'
++            if g % 10 == 1:
++                i = 'пуд'
++            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
++                i = 'пуда'
++            else:
++                i = 'пудов'
++            if f >= 10:
++                j = 'безменов'
++            elif f % 10 == 1:
++                j = 'безмен'
++            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
++                j = 'безмена'
++            else:
++                j = 'безменов'
++            if e % 10 == 1:
++                k = 'гривенка'
++            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
++                k = 'гривенки'
++            else:
++                k = 'гривенок'
++            return d, h, g, i, f, j, e, k
+ 
+-
+-        rezultat_UMNOJENIE = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_UMNOJENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_UMNOJENIE.place(relwidth=1, rely=0.75)
+ 
+         rezbtn_UMNOJENIE = Button(ramka, text='Узнать\nрезультат', font=shrift, bg='grey', command=REZULTAT_UMNOJENIE)
+@@ -442,27 +508,27 @@
+ 
+     def DELENIE():
+         udalenie()
+-        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_znach = Label(ramka, text='ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_znach.place(relwidth=0.5)
+-        text_delitel = Label(ramka, text='ДЕЛИТЕЛЬ', font=shrift, bg='#ed9121')
++        text_delitel = Label(ramka, text='ДЕЛИТЕЛЬ', font=shrift, bg='#c1c1ff')
+         text_delitel.place(relwidth=0.5, relx=0.5)
+ 
+-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
++        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+         text_berk.place(relx=0.06, rely=0.1)
+         entry_1_berk = Entry(ramka, font=little_shrift)
+         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
+ 
+-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
++        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+         text_pud.place(relx=0.09, rely=0.25)
+         entry_1_pud = Entry(ramka, font=little_shrift)
+         entry_1_pud.place(relwidth=0.25, rely=0.3, relx=0.125)
+ 
+-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
++        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+         text_bezm.place(relx=0.07, rely=0.4)
+         entry_1_bezm = Entry(ramka, font=little_shrift)
+         entry_1_bezm.place(relwidth=0.25, rely=0.45, relx=0.125)
+ 
+-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
++        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+         text_griv.place(relx=0.07, rely=0.55)
+         entry_1_griv = Entry(ramka, font=little_shrift)
+         entry_1_griv.place(relwidth=0.25, rely=0.6, relx=0.125)
+@@ -492,8 +558,42 @@
+                 else:
+                     rezultat_DELENIE['text'] = obratniy_perevod(a)
+ 
++        def obratniy_perevod(a):
++            b = a // 5
++            c = b // 16
++            d = c // 10
++            e = a % 5
++            f = b % 16
++            g = c % 10
++            if d % 10 == 1:
++                h = 'берковец'
++            elif d % 10 == 2 or d % 10 == 3 or d % 10 == 4:
++                h = 'берковца'
++            else:
++                h = 'берковцев'
++            if g % 10 == 1:
++                i = 'пуд'
++            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
++                i = 'пуда'
++            else:
++                i = 'пудов'
++            if f >= 10:
++                j = 'безменов'
++            elif f % 10 == 1:
++                j = 'безмен'
++            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
++                j = 'безмена'
++            else:
++                j = 'безменов'
++            if e % 10 == 1:
++                k = 'гривенка'
++            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
++                k = 'гривенки'
++            else:
++                k = 'гривенок'
++            return d, h, g, i, f, j, e, k
+ 
+-        rezultat_DELENIE = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_DELENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_DELENIE.place(relwidth=1, rely=0.75)
+ 
+         rezbtn_DELENIE = Button(ramka, text='Узнать\nрезультат', font=shrift, bg='grey', command=REZULTAT_DELENIE)
+@@ -521,33 +621,33 @@
+ 
+     def SRAVNENIE():
+         udalenie()
+-        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_1_slag = Label(ramka, text='ПЕРВОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_1_slag.place(relwidth=0.5)
+-        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#ed9121')
++        text_2_slag = Label(ramka, text='ВТОРОЕ ЗНАЧЕНИЕ', font=shrift, bg='#c1c1ff')
+         text_2_slag.place(relwidth=0.5, relx=0.5)
+ 
+-        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#ed9121')
++        text_berk = Label(ramka, text='Количество берковцев:', font=little_shrift, bg='#c1c1ff')
+         text_berk.place(relwidth=1, rely=0.1)
+         entry_1_berk = Entry(ramka, font=little_shrift)
+         entry_1_berk.place(relwidth=0.25, rely=0.15, relx=0.125)
+         entry_2_berk = Entry(ramka, font=little_shrift)
+         entry_2_berk.place(relwidth=0.25, rely=0.15, relx=0.625)
+ 
+-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
++        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+         text_pud.place(relwidth=1, rely=0.2)
+         entry_1_pud = Entry(ramka, font=little_shrift)
+         entry_1_pud.place(relwidth=0.25, rely=0.25, relx=0.125)
+         entry_2_pud = Entry(ramka, font=little_shrift)
+         entry_2_pud.place(relwidth=0.25, rely=0.25, relx=0.625)
+ 
+-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
++        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+         text_bezm.place(relwidth=1, rely=0.3)
+         entry_1_bezm = Entry(ramka, font=little_shrift)
+         entry_1_bezm.place(relwidth=0.25, rely=0.35, relx=0.125)
+         entry_2_bezm = Entry(ramka, font=little_shrift)
+         entry_2_bezm.place(relwidth=0.25, rely=0.35, relx=0.625)
+ 
+-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
++        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+         text_griv.place(relwidth=1, rely=0.4)
+         entry_1_griv = Entry(ramka, font=little_shrift)
+         entry_1_griv.place(relwidth=0.25, rely=0.45, relx=0.125)
+@@ -594,7 +694,7 @@
+             else:
+                 return 'Числа РАВНЫ между собой'
+ 
+-        rezultat_SRAVNENIE = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_SRAVNENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_SRAVNENIE.place(relwidth=1, rely=0.7)
+ 
+         rezbtn_SRAVNENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_SRAVNENIE)
+@@ -625,20 +725,20 @@
+ 
+     def DOPOLNENIE():
+         udalenie()
+-        text_znach = Label(ramka, text='Введите значение веса', font=shrift, bg='#ed9121')
++        text_znach = Label(ramka, text='Введите значение веса', font=shrift, bg='#c1c1ff')
+         text_znach.pack()
+ 
+-        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#ed9121')
++        text_pud = Label(ramka, text='Количество пудов:', font=little_shrift, bg='#c1c1ff')
+         text_pud.pack()
+         entry_1_pud = Entry(ramka, font=little_shrift)
+         entry_1_pud.pack()
+ 
+-        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#ed9121')
++        text_bezm = Label(ramka, text='Количество безменов:', font=little_shrift, bg='#c1c1ff')
+         text_bezm.pack()
+         entry_1_bezm = Entry(ramka, font=little_shrift)
+         entry_1_bezm.pack()
+ 
+-        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#ed9121')
++        text_griv = Label(ramka, text='Количество гривенок:', font=little_shrift, bg='#c1c1ff')
+         text_griv.pack()
+         entry_1_griv = Entry(ramka, font=little_shrift)
+         entry_1_griv.pack()
+@@ -660,9 +760,36 @@
+                 else:
+                     rezultat_DOPOLNENIE['text'] = obratniy_perevod(a)
+ 
++        def obratniy_perevod(a):
++            b = a // 5
++            c = b // 16
++            e = a % 5
++            f = b % 16
++            g = c % 10
++            q = 'До берковца не хватает\n'
++            if g % 10 == 1:
++                i = 'пуд'
++            elif g % 10 == 2 or g % 10 == 3 or g % 10 == 4:
++                i = 'пуда'
++            else:
++                i = 'пудов'
++            if f >= 10:
++                j = 'безменов'
++            elif f % 10 == 1:
++                j = 'безмен'
++            elif f % 10 == 2 or f % 10 == 3 or f % 10 == 4:
++                j = 'безмена'
++            else:
++                j = 'безменов'
++            if e % 10 == 1:
++                k = 'гривенка'
++            elif e % 10 == 2 or e % 10 == 3 or e % 10 == 4:
++                k = 'гривенки'
++            else:
++                k = 'гривенок'
++            return q, g, i, f, j, e, k
+ 
+-
+-        rezultat_DOPOLNENIE = Label(ramka, font=shrift, bg='#ed9121')
++        rezultat_DOPOLNENIE = Label(ramka, font=shrift, bg='#c1c1ff')
+         rezultat_DOPOLNENIE.place(relwidth=1, rely=0.75)
+ 
+         rezbtn_DOPOLNENIE = Button(ramka, text='Узнать результат', font=shrift, bg='grey', command=REZULTAT_DOPOLNENIE)
+@@ -704,4 +831,4 @@
+     dopolnenie.pack()
+ 
+ main_page()
+-window.mainloop()
++okno.mainloop()
