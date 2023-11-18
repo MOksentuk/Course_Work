@@ -6,21 +6,20 @@ from Manager import Manager
 from Operations.Converter import Converter
 from Operations.Math import MathOperations
 
+manager = Manager()
+
 
 class ToUser:
-    manager = Manager()
 
     def init(self, name):
-        f = f'Значение в : '
+        f = f'Значение в {name}: '
         print(f)
-        amount = input()
+        amount = 6
         # gallon = input('Значение в галлонах: ')
         # bushel = input('Значение в бушелях: ')
 
-        self.manager.check_is_digit(amount)
+        manager.check_is_digit(amount)
         return amount
-        # self.manager.checker(gallon)
-        # self.manager.checker(bushel)
 
     # def __setattr__(self, key, value):
     #     self.amount = None
@@ -36,4 +35,5 @@ class ToUser:
 #     print(a)
 # else:
 #     print('Nothing')
-# ToUser.init('o')
+a = 'o'
+ToUser().init(name='квартах')

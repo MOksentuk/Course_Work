@@ -48,3 +48,6 @@ class Manager:
         ans += self.decorator(quart, 'кварты', 'кварта', 'кварт')
 
         return ans
+
+
+print(Manager().returner(56))
