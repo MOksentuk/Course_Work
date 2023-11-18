@@ -55,5 +55,6 @@ const3 = 555
 obj1 = Storage(quart=q1.amount, gallon=g1.amount, bushel=b1.amount)
 obj2 = Storage(quart=q2.amount, gallon=g2.amount, bushel=b2.amount)
 # print(Converter().to_liter(manager, q1))
-print(manager.returner(MathOperations().minus(obj1, obj2)))
+# print(manager.returner(MathOperations().minus(obj1, obj2)))
 # print(manager.returner(MathOperations().multiplication_by_number(obj1, const3)))
+print(manager.returner(10))
