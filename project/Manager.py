@@ -3,7 +3,7 @@ class Manager:
     def check_is_digit(amount):
         if amount != '':
             if not str(amount).isdigit():
-                raise ValueError("Передано недопустимое значение")
+                raise ValueError("Переданное значение не является числом")
 
     @staticmethod
     def check_max_value(amount):
@@ -11,8 +11,8 @@ class Manager:
         check_const = 2560
 
         if amount != '':
-            if abs(float(amount)) > check_const:
-                raise ValueError("Передано недопустимое значение")
+            if abs(float(amount)) > check_const or float(amount) < 0:
+                raise ValueError("Недопустимое значение")
 
     @staticmethod
     def decorator(value, name_1, name_2, name_3) -> str:
@@ -26,10 +26,13 @@ class Manager:
             ans += f'{value} {name_3}'
         return ans
 
-    def returner(self, value) -> str:
+    def inverter(self, value) -> str:
         """Перевод из литров в начальные меры объёма"""
-        if value == 0:
+        if value < 0:
+            return 'Полученное значение меньше нуля'
+        elif value == 0:
             return 'Полученное значение равно 0'
+
         self.check_max_value(value)
         bushel_const = 32
         gallon_const = 4
@@ -37,17 +40,17 @@ class Manager:
         gallon = (value % bushel_const) // gallon_const
         quart = value % bushel_const % gallon_const
         ans = ''
-        ans += self.decorator(bushel, 'бушеля', 'бушель', 'бушелей')
+        if bushel != 0:
+            ans += self.decorator(bushel, 'бушеля', 'бушель', 'бушелей')
 
-        if bushel != 0 and gallon != 0:
-            ans += ', '
-        ans += self.decorator(gallon, 'галлона', 'галлон', 'галлонов')
+        if gallon != 0:
+            if bushel != 0:
+                ans += ', '
+            ans += self.decorator(gallon, 'галлона', 'галлон', 'галлонов')
 
-        if quart != 0 and gallon != 0:
-            ans += ', '
-        ans += self.decorator(quart, 'кварты', 'кварта', 'кварт')
+        if quart != 0:
+            if bushel != 0 or gallon != 0:
+                ans += ', '
+            ans += self.decorator(quart, 'кварты', 'кварта', 'кварт')
 
         return ans
-
-
-print(Manager().returner(56))

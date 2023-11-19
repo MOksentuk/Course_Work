@@ -14,13 +14,13 @@ class MathOperations:
         return result
 
     @staticmethod
-    def comparison(lhs, rhs):
+    def comparison(lhs, rhs): # есть проблема с окончаниями
         """Сравнение двух значений"""
         result = abs(lhs.amount - rhs.amount)
         if lhs.amount > rhs.amount:
-            return 1, result
+            return True, result
         elif lhs.amount < rhs.amount:
-            return -1, result
+            return False, result
         else:
             return 0
 

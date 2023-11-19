@@ -10,7 +10,9 @@ from ToUser import ToUser
 
 def main():
     manager = Manager()
-
+    to_user = ToUser()
+    math = MathOperations()
+    converter = Converter()
     number_of_operation = input('Выберите номер операции:\n'
                                 '1. Сложение\n'
                                 '2. Вычитание\n'
@@ -21,41 +23,46 @@ def main():
                                 '7. Перевод в литры\n'
                                 '8. Перевод в стаканы\n'
                                 '9. Перевод в пинты\n>>>')
-    print('Введите значения в квартах, галлонах и бушелях (для того, чтобы пропустить значение, нажмите Enter)')
-    quart = ToUser().init('квартах')
-    gallon = ToUser().init('галлонах')
-    quart = ToUser().init('квартах')
-    # quart = input('Значение в квартах: ')
-    # gallon = input('Значение в галлонах: ')
-    # bushel = input('Значение в бушелях: ')
-    # manager.checker(quart)
-    # manager.checker(gallon)
-    # manager.checker(bushel)
 
+    if number_of_operation not in '123456789':
+        raise ValueError('Переданное значение не является номером операции')
+    print('!Введите значения члена операции в квартах, галлонах и бушелях (для того, чтобы пропустить значение, '
+          'нажмите Enter)!')
+    bushel = to_user.init('Бушели')
+    gallon = to_user.init('Галлоны')
+    quart = to_user.init('Кварты')
+    term = Storage(Quart(quart), Gallon(gallon), Bushel(bushel))
     if number_of_operation in '123':
-        quart1 = input('Значение в квартах: ')
-        gallon1 = input('Значение в галлонах: ')
-        bushel1 = input('Значение в бушелях: ')
-        manager.check_is_digit(quart1)
-        manager.check_is_digit(gallon1)
-        manager.check_is_digit(bushel1)
+        print('!Введите значения второго члена операции в квартах, галлонах и бушелях (для того, чтобы пропустить '
+              'значение, нажмите Enter)!')
+        bushel1 = to_user.init('Бушели')
+        gallon1 = to_user.init('Галлоны')
+        quart1 = to_user.init('Кварты')
+        term1 = Storage(Quart(quart1), Gallon(gallon1), Bushel(bushel1))
+        if number_of_operation == '1':
+            ans = manager.inverter(math.plus(term, term1))
+        if number_of_operation == '2':
+            ans = manager.inverter(math.minus(term, term1))
+        if number_of_operation == '3':
+            ans = to_user.comparison_processing(math.comparison(term, term1))
 
-    # q1 = Quart(1)
-    # q2 = Quart(2)
-    # g1 = Gallon(1)
-    # g2 = Gallon(2)
-    # b1 = Bushel(1)
-    # b2 = Bushel(2)
-    # b3 = Bushel(3)
-    # const1 = 1
-    # const2 = 2
-    # const3 = 555
-    # # 1 2 3 (+-/*) 1 2 3
-    # obj1 = Storage(quart=q1.amount, gallon=g1.amount, bushel=b1.amount)
-    # obj2 = Storage(quart=q2.amount, gallon=g2.amount, bushel=b2.amount)
-    # print(Converter().to_liter(manager, q1))
-    # print(manager.returner(MathOperations().plus(obj1, obj2)))
-    # print(manager.returner(MathOperations().multiplication_by_number(obj1, const3)))
+    elif number_of_operation in '45':
+        const = to_user.init('Константа')
+        if number_of_operation == '4':
+            ans = manager.inverter(math.division_by_number(term, const))
+        if number_of_operation == '5':
+            ans = manager.inverter(math.multiplication_by_number(term, const))
+
+    elif number_of_operation == '6':
+        ans = math.addition_to_max_value(term)
+    elif number_of_operation == '7':
+        ans = manager.decorator(converter.to_liter(term), 'литра', 'литр', 'литров')
+    elif number_of_operation == '8':
+        ans = manager.decorator(converter.to_glass(term), 'стакана', 'стакан', 'стаканов')
+    elif number_of_operation == '9':
+        ans = manager.decorator(converter.to_pint(term), 'пинты', 'пинта', 'пинт')
+
+    print(ans)
 
 
 if __name__ == "__main__":

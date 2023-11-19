@@ -6,20 +6,27 @@ from Manager import Manager
 from Operations.Converter import Converter
 from Operations.Math import MathOperations
 
-manager = Manager()
-
 
 class ToUser:
-
+    manager = Manager()
+  
     def init(self, name):
-        f = f'Значение в {name}: '
-        print(f)
-        amount = 6
-        # gallon = input('Значение в галлонах: ')
-        # bushel = input('Значение в бушелях: ')
+        amount = input(f'{name}: ')
 
-        manager.check_is_digit(amount)
+        self.manager.check_is_digit(amount)
+        self.manager.check_max_value(amount)
+
         return amount
+
+    def comparison_processing(self, ans):
+        label = ans[0]
+        amount = ans[1]
+        if label:
+            return f'Первое значение больше второго на {self.manager.returner(amount)}'
+        elif not label:
+            return f'Первое значение меньше второго на {self.manager.returner(amount)}'
+        else:
+            return 'Значения равны'
 
     # def __setattr__(self, key, value):
     #     self.amount = None
@@ -27,13 +34,3 @@ class ToUser:
     #     self.amount += int(amount)
 
     # obj1 = Storage([])
-
-
-# a=input()
-# b=input()
-# if a!='':
-#     print(a)
-# else:
-#     print('Nothing')
-a = 'o'
-ToUser().init(name='квартах')
