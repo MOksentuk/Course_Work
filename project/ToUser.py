@@ -9,7 +9,7 @@ from Operations.Math import MathOperations
 
 class ToUser:
     manager = Manager()
-
+  
     def init(self, name):
         amount = input(f'{name}: ')
 
