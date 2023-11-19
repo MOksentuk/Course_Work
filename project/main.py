@@ -27,16 +27,16 @@ def main():
         raise ValueError('Переданное значение не является номером операции')
     print('!Введите значения члена операции в квартах, галлонах и бушелях (для того, чтобы пропустить значение, '
           'нажмите Enter)!')
-    quart = to_user.init('Кварты')
-    gallon = to_user.init('Галлоны')
     bushel = to_user.init('Бушели')
+    gallon = to_user.init('Галлоны')
+    quart = to_user.init('Кварты')
     term = Storage(Quart(quart), Gallon(gallon), Bushel(bushel))
     if number_of_operation in '123':
         print('!Введите значения второго члена операции в квартах, галлонах и бушелях (для того, чтобы пропустить '
               'значение, нажмите Enter)!')
-        quart1 = to_user.init('Кварты')
-        gallon1 = to_user.init('Галлоны')
         bushel1 = to_user.init('Бушели')
+        gallon1 = to_user.init('Галлоны')
+        quart1 = to_user.init('Кварты')
         term1 = Storage(Quart(quart1), Gallon(gallon1), Bushel(bushel1))
         if number_of_operation == '1':
             ans = manager.inverter(math.plus(term, term1))
