@@ -22,9 +22,9 @@ class ToUser:
         label = ans[0]
         amount = ans[1]
         if label:
-            return f'Первое значение больше второго на {self.manager.returner(amount)}'
+            return f'Первое значение больше второго на {self.manager.inverter(amount)}'
         elif not label:
-            return f'Первое значение меньше второго на {self.manager.returner(amount)}'
+            return f'Первое значение меньше второго на {self.manager.inverter(amount)}'
         else:
             return 'Значения равны'
 

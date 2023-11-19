@@ -14,7 +14,7 @@ class MathOperations:
         return result
 
     @staticmethod
-    def comparison(lhs, rhs): # есть проблема с окончаниями
+    def comparison(lhs, rhs):  # есть проблема с окончаниями
         """Сравнение двух значений"""
         result = abs(lhs.amount - rhs.amount)
         if lhs.amount > rhs.amount:

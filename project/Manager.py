@@ -15,7 +15,7 @@ class Manager:
                 raise ValueError("Недопустимое значение")
 
     @staticmethod
-    def decorator(value, name_1, name_2, name_3) -> str:
+    def decorator(value, name_1, name_2, name_3) -> str:  # можно вынести в отдельный файл
         """Расстановка окончаний в выводе в зависимости от значения"""
         ans = ''
         if 1 < abs(value % 10) < 5 or int(value) != value:
@@ -26,7 +26,7 @@ class Manager:
             ans += f'{value} {name_3}'
         return ans
 
-    def inverter(self, value) -> str:
+    def inverter(self, value) -> str:  # можно разбить на два класса
         """Перевод из литров в начальные меры объёма"""
         if value < 0:
             return 'Полученное значение меньше нуля'
