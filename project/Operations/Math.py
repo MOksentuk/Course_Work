@@ -2,15 +2,15 @@ class MathOperations:
     @staticmethod
     def plus(lhs, rhs):
         """Сложение двух значений"""
-
         result = lhs.amount + rhs.amount
+        
         return result
 
     @staticmethod
     def minus(lhs, rhs):
         """Вычитание двух значений"""
-
         result = lhs.amount - rhs.amount
+        
         return result
 
     @staticmethod
@@ -28,12 +28,14 @@ class MathOperations:
     def division_by_number(obj, const):
         """Деление на число"""
         result = obj.amount / const
+        
         return result
 
     @staticmethod
     def multiplication_by_number(obj, const):
         """Умножение на число"""
         result = obj.amount * const
+        
         return result
 
     @staticmethod
@@ -41,4 +43,5 @@ class MathOperations:
         """Дополнение до максимального значения"""
         max_value = 256
         result = obj.amount - max_value
+        
         return result
