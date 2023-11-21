@@ -27,10 +27,3 @@ class ToUser:
             return f'Первое значение меньше второго на {self.manager.returner(amount)}'
         else:
             return 'Значения равны'
-
-    # def __setattr__(self, key, value):
-    #     self.amount = None
-    # if amount != '':
-    #     self.amount += int(amount)
-
-    # obj1 = Storage([])
