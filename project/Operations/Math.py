@@ -20,7 +20,7 @@ class MathOperations:
         """Сравнение двух значений"""
         result = abs(lhs.amount - rhs.amount)
         if lhs.amount > rhs.amount:
-            return True, result
+            return new ResultType(True, result)
         elif lhs.amount < rhs.amount:
             return False, result
         else:
