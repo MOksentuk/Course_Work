@@ -6,6 +6,7 @@ class MathOperations:
         
         return result
 
+    
     @staticmethod
     def minus(lhs, rhs):
         """Вычитание двух значений"""
@@ -13,6 +14,7 @@ class MathOperations:
         
         return result
 
+    
     @staticmethod
     def comparison(lhs, rhs): # есть проблема с окончаниями
         """Сравнение двух значений"""
@@ -24,6 +26,7 @@ class MathOperations:
         else:
             return 0
 
+    
     @staticmethod
     def division_by_number(obj, const):
         """Деление на число"""
@@ -31,6 +34,7 @@ class MathOperations:
         
         return result
 
+    
     @staticmethod
     def multiplication_by_number(obj, const):
         """Умножение на число"""
@@ -38,6 +42,7 @@ class MathOperations:
         
         return result
 
+    
     @staticmethod
     def addition_to_max_value(obj):
         """Дополнение до максимального значения"""
