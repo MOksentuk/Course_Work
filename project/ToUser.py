@@ -21,11 +21,11 @@ class ToUser:
         return amount
 
     
-    def comparison_processing(self, ans):
-        label = ans[0]
-        amount = ans[1]
-        if label:
-            return f'Первое значение больше второго на {self._manager.returner(amount)}'
+    def comparison_processing(self, res_type):
+        # label = ans[0]
+        # amount = ans[1]
+        if res_type.status:
+            return f'Первое значение больше второго на {self._manager.returner(res_type.result)}'
         elif not label:
             return f'Первое значение меньше второго на {self._manager.returner(amount)}'
         else:
