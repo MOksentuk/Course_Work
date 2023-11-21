@@ -10,7 +10,7 @@ from ToUser import ToUser
 
 def main():
     manager = Manager()
-    to_user = ToUser()
+    to_user = ToUser(manager)
     math = MathOperations()
     converter = Converter()
     number_of_operation = input('Выберите номер операции:\n'
