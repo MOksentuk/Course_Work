@@ -1,0 +1,4 @@
+class ResultType:
+  def __init(self, status, result):
+    self.status = status
+    self.result = result
