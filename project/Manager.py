@@ -2,7 +2,7 @@ class Manager:
     @staticmethod
     def check_is_digit(amount):
         if amount != '':
-            if not str(amount).isdigit():
+            if not (amount is float and amount is int): # do construction try-exept
                 raise ValueError("Переданное значение не является числом")
 
     @staticmethod
