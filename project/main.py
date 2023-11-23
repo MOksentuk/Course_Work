@@ -9,6 +9,7 @@ from ToUser import ToUser
 
 
 def main():
+    global ans
     manager = Manager()
     to_user = ToUser()
     math = MathOperations()
@@ -41,16 +42,16 @@ def main():
         term1 = Storage(Quart(quart1), Gallon(gallon1), Bushel(bushel1))
         if number_of_operation == '1':
             ans = manager.inverter(math.plus(term, term1))
-        if number_of_operation == '2':
+        elif number_of_operation == '2':
             ans = manager.inverter(math.minus(term, term1))
-        if number_of_operation == '3':
+        else:
             ans = to_user.comparison_processing(math.comparison(term, term1))
 
     elif number_of_operation in '45':
         const = to_user.init('Константа')
         if number_of_operation == '4':
             ans = manager.inverter(math.division_by_number(term, const))
-        if number_of_operation == '5':
+        else:
             ans = manager.inverter(math.multiplication_by_number(term, const))
 
     elif number_of_operation == '6':

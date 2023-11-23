@@ -21,12 +21,12 @@ class ToUser:
     def comparison_processing(self, ans):
         label = ans[0]
         amount = ans[1]
-        if label:
-            return f'Первое значение больше второго на {self.manager.returner(amount)}'
-        elif not label:
-            return f'Первое значение меньше второго на {self.manager.returner(amount)}'
-        else:
+        if amount is None:
             return 'Значения равны'
+        elif label:
+            return f'Первое значение больше второго на {self.manager.inverter(amount)}'
+        else:
+            return f'Первое значение меньше второго на {self.manager.inverter(amount)}'
 
     # def __setattr__(self, key, value):
     #     self.amount = None
