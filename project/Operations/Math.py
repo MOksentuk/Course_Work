@@ -33,7 +33,7 @@ class MathOperations:
         return result
 
     @staticmethod
-    def addition_to_max_value(obj):
+    def addition_to_max_value(obj): # не доделано
         """Дополнение до максимального значения"""
         max_value = 256
         result = obj.amount - max_value
