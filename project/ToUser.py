@@ -2,17 +2,10 @@ from Models.Quart import Quart
 from Models.Gallon import Gallon
 from Models.Bushel import Bushel
 from Models.Storage import Storage
-from Manager import Manager
-from Operations.Converter import Converter
-from Operations.Math import MathOperations
 
 
 class ToUser():
-    def __init__(self, manager, math, converter):
-        self.manager = manager
-        self.math = math
-        self.converter = converter
-    def working(self):
+    def work(self, manager, math, converter):
         number_of_operation = input('Выберите номер операции:\n'
                                     '1. Сложение\n'
                                     '2. Вычитание\n'
