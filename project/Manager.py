@@ -2,8 +2,11 @@ class Manager:
     @staticmethod
     def check_is_digit(amount):
         if amount != '':
-            if not str(amount).isdigit():
-                raise ValueError("Переданное значение не является числом")
+            try:
+                float(amount)
+            except ValueError:
+                return False
+            return True
 
     @staticmethod
     def check_max_value(amount):
@@ -12,7 +15,8 @@ class Manager:
 
         if amount != '':
             if abs(float(amount)) > check_const or float(amount) < 0:
-                raise ValueError("Недопустимое значение")
+                return False
+            return True
 
     @staticmethod
     def decorator(value, name_1, name_2, name_3) -> str:
@@ -54,3 +58,26 @@ class Manager:
             ans += self.decorator(quart, 'кварты', 'кварта', 'кварт')
 
         return ans
+
+    def init(self, name):
+        amount = input(f'{name}: ')
+        while True:
+            if not self.check_is_digit(amount):
+                amount = input(f'Введено недопустимое значение.\n{name}: ')
+                continue
+            if not self.check_max_value(amount):
+                amount = input(f'Введённое значение превышает максимально допустимое.\n{name}: ')
+                continue
+            break
+
+        return amount
+
+    def comparison_processing(self, ans):
+        label = ans[0]
+        amount = ans[1]
+        if amount is None:
+            return 'Значения равны'
+        elif label:
+            return f'Первое значение больше второго на {self.inverter(amount)}'
+        else:
+            return f'Первое значение меньше второго на {self.inverter(amount)}'

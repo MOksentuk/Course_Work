@@ -1,20 +1,18 @@
 class MathOperations:
-    @staticmethod
-    def plus(lhs, rhs):
+    result = ''
+
+    def plus(self, lhs, rhs):
         """Сложение двух значений"""
 
-        result = lhs.amount + rhs.amount
-        return result
+        self.result = lhs.amount + rhs.amount
 
-    @staticmethod
-    def minus(lhs, rhs):
+    def minus(self, lhs, rhs):
         """Вычитание двух значений"""
 
-        result = lhs.amount - rhs.amount
-        return result
+        self.result = lhs.amount - rhs.amount
 
     @staticmethod
-    def comparison(lhs, rhs): # есть проблема с окончаниями
+    def comparison(lhs, rhs):  # есть проблема с окончаниями
         """Сравнение двух значений"""
         result = abs(lhs.amount - rhs.amount)
         if lhs.amount > rhs.amount:
@@ -22,13 +20,11 @@ class MathOperations:
         elif lhs.amount < rhs.amount:
             return False, result
         else:
-            return 0
+            return None, 0
 
-    @staticmethod
-    def division_by_number(obj, const):
+    def division_by_number(self, obj, const):
         """Деление на число"""
-        result = obj.amount / const
-        return result
+        self.result = obj.amount / const
 
     @staticmethod
     def multiplication_by_number(obj, const):
