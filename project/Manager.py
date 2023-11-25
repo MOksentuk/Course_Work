@@ -112,7 +112,8 @@ class Manager:
             return f'Первое значение меньше второго на {self.inverter(amount)}'
 
     def addition_to_max_value_processing(self, amount):
-        """Обработка результатов операции "Сравнение\""""
+        """Обработка результатов операции "Дополнение до максимального значения\""""
         if not amount:
             return 'Значение уже больше максимального'
-        else: return f'До максимального значения не хватает {self.inverter(amount)}'
+        else:
+            return f'До максимального значения не хватает {self.inverter(amount)}'

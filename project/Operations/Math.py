@@ -20,8 +20,8 @@ class MathOperations:
             return True, result
         elif lhs.amount < rhs.amount:
             return False, result
-        else:
-            return None, 0
+
+        return None, 0
 
     def division_by_number(self, obj, const):
         """Деление на число"""
@@ -32,10 +32,10 @@ class MathOperations:
         self.result = obj.amount * const
 
     @staticmethod
-    def addition_to_max_value(obj):  # Доделать
+    def addition_to_max_value(obj):
         """Дополнение до максимального значения"""
         max_value = 256
         if obj.amount > max_value:
             return False
-        result = max_value - obj.amount
-        return result
+
+        return max_value - obj.amount
