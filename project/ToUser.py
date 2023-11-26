@@ -45,8 +45,20 @@ def to_user(manager, math, converter):
         converter.to_liter(term)
         ans = manager.decorator(converter.result, 'литра', 'литр', 'литров')
     elif number_of_operation == '8':
-        ans = manager.decorator(converter.to_glass(term), 'стакана', 'стакан', 'стаканов')
+        converter.to_glass(term)
+        ans = manager.decorator(converter.result, 'стакана', 'стакан', 'стаканов')
     elif number_of_operation == '9':
-        ans = manager.decorator(converter.to_pint(term), 'пинты', 'пинта', 'пинт')
+        converter.to_pint(term)
+        ans = manager.decorator(converter.result, 'пинты', 'пинта', 'пинт')
 
-    return ans
+    return 'Ответ: ' + ans
+
+
+from Manager import Manager
+from Operations.Converter import Converter
+from Operations.Math import MathOperations
+
+manager = Manager()
+math = MathOperations()
+converter = Converter()
+print(to_user(manager, math, converter))

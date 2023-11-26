@@ -68,14 +68,14 @@ class Manager:
         amount = input(f'{name}: ')
         while True:
             if not self.check_is_digit(amount):
-                amount = input(f'Введено недопустимое значение.\n{name}: ')
+                amount = input(f'Введено недопустимое значение, попробуйте ещё раз.\n{name}: ')
                 continue
             if not self.check_max_value(amount):
-                amount = input(f'Введённое значение превышает максимально допустимое.\n{name}: ')
+                amount = input(f'Введённое значение превышает максимально допустимое, попробуйте ещё раз.\n{name}: ')
                 continue
             break
 
-        return amount
+        return float(amount)
 
     @staticmethod
     def number_of_operation():
@@ -93,7 +93,7 @@ class Manager:
         number_of_operation = input(f'{text}')
         while True:
             if number_of_operation not in '123456789' or len(number_of_operation) != 1:
-                number_of_operation = input(f'Переданное значение не может быть номером операции.'
+                number_of_operation = input(f'Переданное значение не может быть номером операции, попробуйте ещё раз.'
                                             f'\n\n{text}')
                 continue
             break
@@ -105,15 +105,15 @@ class Manager:
         label = ans[0]
         amount = ans[1]
         if amount is None:
-            return 'Значения равны'
+            return 'значения равны'
         elif label:
-            return f'Первое значение больше второго на {self.inverter(amount)}'
+            return f'первое значение больше второго на {self.inverter(amount)}'
         else:
-            return f'Первое значение меньше второго на {self.inverter(amount)}'
+            return f'первое значение меньше второго на {self.inverter(amount)}'
 
     def addition_to_max_value_processing(self, amount):
         """Обработка результатов операции "Дополнение до максимального значения\""""
         if not amount:
-            return 'Значение уже больше максимального'
+            return 'значение уже больше или равно максимальному'
         else:
-            return f'До максимального значения не хватает {self.inverter(amount)}'
+            return f'до максимального значения не хватает {self.inverter(amount)}'
