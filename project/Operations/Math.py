@@ -1,5 +1,6 @@
 class MathOperations:
-    result = ''
+    def __init__(self):
+        self.result = None
 
     def plus(self, lhs, rhs):
         """Сложение двух значений"""
@@ -19,22 +20,22 @@ class MathOperations:
             return True, result
         elif lhs.amount < rhs.amount:
             return False, result
-        else:
-            return None, 0
+
+        return None, 0
 
     def division_by_number(self, obj, const):
         """Деление на число"""
         self.result = obj.amount / const
 
-    @staticmethod
-    def multiplication_by_number(obj, const):
-        """Умножение на число"""
-        result = obj.amount * const
-        return result
+    def multiplication_by_number(self, obj, const):
+        """Деление на число"""
+        self.result = obj.amount * const
 
     @staticmethod
     def addition_to_max_value(obj):
         """Дополнение до максимального значения"""
         max_value = 256
-        result = obj.amount - max_value
-        return result
+        if obj.amount > max_value:
+            return False
+
+        return max_value - obj.amount
