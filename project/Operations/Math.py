@@ -1,4 +1,4 @@
-class MathOperations:
+class Math:
     def __init__(self):
         self.result = None
 

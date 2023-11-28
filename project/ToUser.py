@@ -54,11 +54,11 @@ def to_user(manager, math, converter):
     return 'Ответ: ' + ans
 
 
-from Manager import Manager
-from Operations.Converter import Converter
-from Operations.Math import MathOperations
-
-manager = Manager()
-math = MathOperations()
-converter = Converter()
-print(to_user(manager, math, converter))
+# from Manager import Manager
+# from Operations.Converter import Converter
+# from Operations.Math import Math
+#
+# manager = Manager()
+# math = Math()
+# converter = Converter()
+# print(to_user(manager, math, converter))
