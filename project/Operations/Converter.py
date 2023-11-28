@@ -1,10 +1,10 @@
 class Converter:
-    __liter_const = 1.1365
-    __glass_const = 0.273
-    __pint_const = 0.56826
 
     def __init__(self):
         self.result = None
+        self.__liter_const = 1.1365
+        self.__glass_const = 0.273
+        self.__pint_const = 0.56826
 
     def to_liter(self, obj):
         """Возвращение значения в литрах"""

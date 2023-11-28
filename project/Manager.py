@@ -9,7 +9,7 @@ class Manager:
             except ValueError:
                 return False
 
-            return True
+        return True
 
     @staticmethod
     def check_max_value(amount):
@@ -20,7 +20,7 @@ class Manager:
             if abs(float(amount)) > check_const:
                 return False
 
-            return True
+        return True
 
     @staticmethod
     def decorator(value, name_1, name_2, name_3) -> str:
@@ -67,6 +67,8 @@ class Manager:
         """Инициализация составляющей члена операции"""
         amount = input(f'{name}: ')
         while True:
+            if amount == '':
+                return 0
             if not self.check_is_digit(amount):
                 amount = input(f'Введено недопустимое значение, попробуйте ещё раз.\n{name}: ')
                 continue
@@ -75,7 +77,7 @@ class Manager:
                 continue
             break
 
-        return float(amount)
+        return amount
 
     @staticmethod
     def number_of_operation():
