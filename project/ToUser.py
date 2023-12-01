@@ -8,14 +8,14 @@ def to_user(manager, math, converter):
     global ans
 
     number_of_operation = manager.number_of_operation()
-    print('Введите значения члена операции в квартах, галлонах и бушелях (для того, чтобы пропустить значение, '
+    print('Введите значения члена операции в квартах, галлонах и бушелях\n(для того, чтобы пропустить значение, '
           'нажмите Enter):')
     bushel = manager.init('Бушели')
     gallon = manager.init('Галлоны')
     quart = manager.init('Кварты')
     term = Storage(Quart(quart), Gallon(gallon), Bushel(bushel))
     if number_of_operation in '123':
-        print('Введите значения второго члена операции в квартах, галлонах и бушелях (для того, чтобы пропустить '
+        print('Введите значения второго члена операции в квартах, галлонах и бушелях\n(для того, чтобы пропустить '
               'значение, нажмите Enter):')
         bushel1 = manager.init('Бушели')
         gallon1 = manager.init('Галлоны')
@@ -54,11 +54,11 @@ def to_user(manager, math, converter):
     return 'Ответ: ' + ans
 
 
-from Manager import Manager
-from Operations.Converter import Converter
-from Operations.Math import MathOperations
-
-manager = Manager()
-math = MathOperations()
-converter = Converter()
-print(to_user(manager, math, converter))
+# from Manager import Manager
+# from Operations.Converter import Converter
+# from Operations.Math import Math
+#
+# manager = Manager()
+# math = Math()
+# converter = Converter()
+# print(to_user(manager, math, converter))

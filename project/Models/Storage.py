@@ -3,5 +3,4 @@ class Storage:
         self.amount = 0
         models = [arg for arg in args]
         for model in models:
-            if model.amount != '':
-                self.amount += model.amount
+            self.amount += float(model.amount)
