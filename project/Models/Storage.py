@@ -3,4 +3,4 @@ class Storage:
         self.amount = 0
         models = [arg for arg in args]
         for model in models:
-            self.amount += float(model.amount)
+            self.amount += int(model.amount)
