@@ -5,7 +5,7 @@ from Models.Storage import Storage
 
 
 def to_user(manager, math, converter):
-    """Алгоритм работы с пользователем"""
+    """Работа с пользователем"""
     while True:
         global ans
         number_of_operation = manager.number_of_operation()

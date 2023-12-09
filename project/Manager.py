@@ -47,7 +47,7 @@ class Manager:
             return '0'
 
         elif not self.check_max_value(value):
-            return 'Превышено максимально допустимое значение.'
+            return 'Превышено максимально допустимое значение'
         bushel_const = 32
         gallon_const = 4
         bushel = value // bushel_const
@@ -119,7 +119,7 @@ class Manager:
         """Обработка результатов операции "Сравнение\""""
         label = ans[0]
         amount = ans[1]
-        if amount is None:
+        if label is None:
             return 'значения равны'
         elif label:
             return f'первое значение больше второго на {self.inverter(amount)}'

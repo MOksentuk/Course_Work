@@ -28,7 +28,7 @@ class Math:
         self.result = round(obj.amount / const)
 
     def multiplication_by_number(self, obj, const):
-        """Деление на число"""
+        """Умножение на число"""
         self.result = round(obj.amount * const)
 
     @staticmethod
