@@ -1,3 +1,9 @@
+from Models.Quart import Quart
+from Models.Gallon import Gallon
+from Models.Bushel import Bushel
+from Models.Storage import Storage
+
+
 class Manager:
 
     @staticmethod
@@ -70,25 +76,19 @@ class Manager:
         return ans
 
     def init(self, name):
-        """Инициализация составляющей члена операции"""
-        amount = input(f'{name}: ')
+        """Инициализация составляющей члена операции или константы"""
         while True:
+            amount = input(f'{name}: ')
             if amount == '':
                 return 0
             if not self.check_is_digit(amount):
-                amount = input(f'Введено недопустимое значение, попробуйте ещё раз.\n{name}: ')
-                continue
-            if not self.check_max_value(amount) and name != 'Константа':
-                amount = input(f'Введённое значение превышает максимально допустимое, '
-                               f'попробуйте ещё раз.\n{name}: ')
+                print(f'Введено недопустимое значение, попробуйте ещё раз.\n')
                 continue
             if not self.check_negative(amount):
-                amount = input(f'Введённое значение меньше 0, '
-                               f'попробуйте ещё раз.\n{name}: ')
+                print(f'Введённое значение меньше 0, попробуйте ещё раз.\n')
                 continue
-            break
 
-        return int(amount)
+            return int(amount)
 
     @staticmethod
     def number_of_operation():
@@ -103,17 +103,29 @@ class Manager:
                 '7. Перевод в литры\n'
                 '8. Перевод в стаканы\n'
                 '9. Перевод в пинты\n>>> ')
-        number_of_operation = input(f'{text}')
-        if number_of_operation == '':
-            return False
         while True:
-            if number_of_operation not in '123456789' or len(number_of_operation) != 1:
-                number_of_operation = input(f'Переданное значение не может быть номером операции, '
-                                            f'попробуйте ещё раз.\n\n{text}')
-                continue
-            break
+            number_of_operation = input(f'{text}')
+            if number_of_operation == '':
+                return False
+            if number_of_operation in '123456789' and len(number_of_operation) == 1:
+                return number_of_operation
 
-        return number_of_operation
+            print(f'Переданное значение не может быть номером операции, '
+                  'попробуйте ещё раз.\n')
+
+    def term(self, ordinal):
+        """Создание члена операции"""
+        print(f'Введите значения {ordinal} члена операции в квартах, галлонах и бушелях'
+              '\n(для того, чтобы пропустить значение, нажмите Enter):')
+        while True:
+            bushel = self.init('Бушели')
+            gallon = self.init('Галлоны')
+            quart = self.init('Кварты')
+            term = Storage(Quart(quart), Gallon(gallon), Bushel(bushel))
+            if self.check_max_value(term.amount):
+                return term
+            print('Введённое значение превышает максимально допустимое, '
+                  'попробуйте ещё раз.')
 
     def comparison_processing(self, ans):
         """Обработка результатов операции "Сравнение\""""
