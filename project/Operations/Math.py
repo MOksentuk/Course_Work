@@ -25,11 +25,11 @@ class Math:
 
     def division_by_number(self, obj, const):
         """Деление на число"""
-        self.result = obj.amount / const
+        self.result = round(obj.amount / const)
 
     def multiplication_by_number(self, obj, const):
-        """Деление на число"""
-        self.result = obj.amount * const
+        """Умножение на число"""
+        self.result = round(obj.amount * const)
 
     @staticmethod
     def addition_to_max_value(obj):

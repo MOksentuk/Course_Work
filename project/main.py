@@ -8,7 +8,7 @@ def main():
     manager = Manager()
     math = Math()
     converter = Converter()
-    print(to_user(manager, math, converter))
+    to_user(manager, math, converter)
 
 
 if __name__ == "__main__":
